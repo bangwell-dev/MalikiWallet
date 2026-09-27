@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<title>Dashboard - MalikiWallet | UIN Maliki Malang</title>
+<link rel="icon" type="image/jpeg" href="../Logo.jpeg"/>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
+  <div class="flex flex-col gap-space-lg">
+    <!-- Header with Logo & Mobile Close Button -->
+    <div class="flex items-center justify-between">
+      <a href="../dashboard/index.html" class="flex items-center gap-space-sm px-space-xs group cursor-pointer" title="Kembali ke Dashboard">
+        <img alt="MalikiWallet Logo" class="h-9 w-9 object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform" src="../Logo.jpeg" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">MalikiWallet</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant">UIN Maulana Malik Ibrahim</span>
+        </div>
+      </a>
+      <button aria-label="Tutup Menu" onclick="toggleMobileSidebar()" class="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <!-- Quick Action: Tambah Transaksi -->
+    <button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-3 px-space-md rounded-xl shadow-md hover:bg-primary-container hover:text-on-primary transition-all duration-200 font-label-lg text-label-lg active:scale-95 cursor-pointer" onclick="openModal('add-transaction')">
+      <span class="material-symbols-outlined text-lg">add_circle</span>
+      <span>+ Tambah Transaksi</span>
+    </button>
+
+    <!-- Main Navigation Links -->
+    <nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm">
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors bg-primary-container text-on-primary-container font-headline-sm shadow-sm" data-path="dashboard" href="../dashboard/index.html">
+          <span class="material-symbols-outlined text-xl">space_dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="transaksi" href="../daftarTransaksi/index.html">
+          <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+          <span>Transaksi</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="budget" href="../budget/index.html">
+          <span class="material-symbols-outlined text-xl">savings</span>
+          <span>Budget</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="analisis" href="../analisis/index.html">
+          <span class="material-symbols-outlined text-xl">monitoring</span>
+          <span>Analisis</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="scan-nota" href="../scanNota/index.html">
+          <span class="material-symbols-outlined text-xl">qr_code_scanner</span>
+          <span>Scan Nota</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="profil" href="../profil/index.html">
+          <span class="material-symbols-outlined text-xl">person</span>
+          <span>Profil</span>
+        </a>
+    </nav>
+  </div>
+
+  <!-- User Profile Card in Sidebar Footer -->
+  <a href="../profil/index.html" class="bg-surface-container hover:bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-sm transition-colors group cursor-pointer block" title="Kelola Profil & SIAKAD">
+    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+      <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+    </div>
+    <div class="flex flex-col min-w-0 flex-1">
+      <span class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Muhammad Wildan</span>
+      <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Teknik Informatika</span>
+    </div>
+    <span class="material-symbols-outlined text-lg text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+  </a>
+</aside>
+<div id="mobile-sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden transition-opacity lg:hidden"></div><div class="lg:pl-72"><header class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-md lg:px-space-xl flex items-center justify-between">
+  <div class="flex items-center gap-space-sm">
+    <button aria-label="Menu Navigation" onclick="toggleMobileSidebar()" class="lg:hidden p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg cursor-pointer">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+    <a href="../dashboard/index.html" class="flex items-center gap-space-xs lg:hidden group cursor-pointer">
+      <img alt="MalikiWallet Logo" class="h-8 w-8 object-contain rounded-md shadow-xs group-hover:scale-105 transition-transform" src="../Logo.jpeg" />
+      <span class="font-headline-sm text-headline-sm text-primary">MalikiWallet</span>
+    </a>
+  </div>
+  <div class="flex items-center gap-space-md">
+    <!-- Notification Bell with Interactive Dropdown -->
+    <div class="relative">
+      <button onclick="toggleNotificationsMenu(event)" class="p-space-xs rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors relative cursor-pointer" data-path="notifikasi" title="Notifikasi Keuangan Kampus">
+        <span class="material-symbols-outlined text-2xl">notifications</span>
+        <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+      </button>
+      <div id="notifications-dropdown" class="hidden absolute right-0 mt-2 w-80 sm:w-96 bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-4 z-50 text-left">
+        <div class="flex items-center justify-between pb-3 border-b border-surface-container">
+          <span class="font-headline-sm text-sm font-bold text-primary">Notifikasi Mahasiswa</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-semibold">3 Baru</span>
+        </div>
+        <div class="flex flex-col gap-2.5 mt-3 max-h-72 overflow-y-auto">
+          <div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html'">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">account_balance</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Transfer Masuk Berhasil</span>
+              <span class="text-on-surface-variant block mt-0.5">Kiriman Uang Saku Bulanan Rp1.700.000 telah masuk ke Rekening BSI.</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">Hari ini, 08:00</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-secondary-fixed/20 hover:bg-secondary-fixed/30 transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../budget/index.html'">
+            <span class="material-symbols-outlined text-secondary text-xl mt-0.5">warning</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Peringatan Pos Anggaran</span>
+              <span class="text-on-surface-variant block mt-0.5">Budget Makanan & Minuman sudah terpakai 85%. Tetap hemat!</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">Kemarin, 19:30</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html'">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">school</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Beasiswa Tahfidz Cair</span>
+              <span class="text-on-surface-variant block mt-0.5">Dana beasiswa prestasi semester 4 telah diverifikasi rektorat.</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">24 Sept 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Profile Header Pill -->
+    <a href="../profil/index.html" class="hidden sm:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container transition-colors py-1.5 px-space-md rounded-full group cursor-pointer" title="Buka Profil Mahasiswa">
+      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Muhammad Wildan</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM 210605110000</span>
+      </div>
+    </a>
+    <a href="../profil/index.html" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer" title="Buka Profil Mahasiswa">
+      <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+    </a>
+  </div>
+</header><main class="w-full pt-16 pb-24 lg:pb-12 bg-surface min-h-screen px-space-md lg:px-space-xl"><div class="flex flex-col w-full pb-10 gap-space-lg">
+<!-- GREETING & OVERVIEW HEADER -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pt-2">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-surface-container text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary">school</span>
+          Teknik Informatika • Semester 4
+        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_today</span>
+          Jumat, 25 September 2026
+        </span>
+</div>
+<h1 class="text-2xl lg:text-3xl font-bold tracking-tight text-primary mt-1">
+        Selamat datang, Muhammad Wildan <span class="inline-block animate-bounce">👋</span>
+</h1>
+<p class="text-sm text-on-surface-variant">
+        Pantau cashflow kuliah UIN Maliki Malang kamu dengan bijak hari ini.
+      </p>
+</div>
+<!-- Quick Action Bar -->
+<div class="flex items-center gap-2 self-start md:self-auto">
+<button class="px-3.5 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm active:scale-95" onclick="openModal('quick-topup')">
+<span class="material-symbols-outlined text-base text-primary">download</span>
+        Top Up Saldo
+      </button>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary hover:bg-primary-container text-xs font-semibold flex items-center gap-1.5 transition-all shadow-md active:scale-95" onclick="openModal('add-transaction')">
+<span class="material-symbols-outlined text-base">add</span>
+        Catat Pengeluaran
+      </button>
+</div>
+</section>
+<!-- METRIC STATS: 3 Bento Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Card 1: Saldo Utama (Emerald Gradient Hero) -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-primary-container to-tertiary-container text-on-primary p-space-lg shadow-lg flex flex-col justify-between min-h-[175px] group">
+<!-- Decorative Backdrop circles -->
+<div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
+<div class="absolute right-4 bottom-2 text-white/10 pointer-events-none select-none">
+<span class="material-symbols-outlined text-8xl">account_balance_wallet</span>
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<span class="text-xs uppercase tracking-wider font-semibold text-primary-fixed">Saldo Rekening Maliki</span>
+<button class="p-1 rounded-lg text-primary-fixed hover:bg-white/10 transition-colors" id="toggle-saldo-btn" onclick="toggleSaldoVisibility()" title="Sembunyikan / Tampilkan">
+<span class="material-symbols-outlined text-xl" id="eye-icon">visibility</span>
+</button>
+</div>
+<div class="relative z-10 my-3">
+<div class="text-xs text-primary-fixed-dim font-medium mb-1">Total Tersedia</div>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl sm:text-3xl font-extrabold tracking-tight" id="saldo-text">Rp2.450.000</span>
+<span class="hidden text-2xl sm:text-3xl font-extrabold tracking-widest" id="saldo-hidden">••••••••</span>
+</div>
+</div>
+<div class="relative z-10 flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-[11px] text-primary-fixed font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary-container inline-block"></span>
+          Rekening Utama • Bank BSI
+        </div>
+<a class="text-xs font-semibold text-secondary-container hover:underline flex items-center gap-0.5" href="../analisis/index.html">
+          Rincian <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Pemasukan Bulan Ini -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between min-h-[175px] hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">trending_up</span>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-primary px-2 py-0.5 rounded-full bg-primary-fixed">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> +12%
+        </span>
+</div>
+<div class="my-2">
+<span class="text-xs font-medium text-on-surface-variant">Pemasukan Bulan Ini</span>
+<div class="text-2xl font-bold tracking-tight text-on-surface mt-1">+Rp3.200.000</div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-2">
+<span>Kiriman ortu &amp; Beasiswa</span>
+<span class="font-medium text-primary">Target: 100%</span>
+</div>
+</div>
+<!-- Card 3: Pengeluaran Bulan Ini -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between min-h-[175px] hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-xl">trending_down</span>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-secondary px-2 py-0.5 rounded-full bg-secondary-fixed">
+<span class="material-symbols-outlined text-xs">bolt</span> Safe Burn Rate
+        </span>
+</div>
+<div class="my-2">
+<span class="text-xs font-medium text-on-surface-variant">Pengeluaran Bulan Ini</span>
+<div class="text-2xl font-bold tracking-tight text-error mt-1">-Rp1.850.000</div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-2">
+<span>Rata-rata Harian:</span>
+<span class="font-semibold text-on-surface">Rp61.600/hari</span>
+</div>
+</div>
+</section>
+<!-- STUDENT INSIGHT BANNER -->
+<section class="rounded-2xl bg-surface-container-high p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<h2 class="text-xs font-bold uppercase tracking-wider text-secondary">Insight Pengeluaran Mahasiswa Kampus Malang</h2>
+<p class="text-xs sm:text-sm text-on-surface mt-0.5">
+          Pengeluaran makanan meningkat <strong class="text-error font-semibold">15%</strong> dibanding minggu lalu (area Sunan Kalijaga/Sigura-gura). Pertimbangkan masak bersama teman kos!
+        </p>
+</div>
+</div>
+<button class="text-xs text-on-surface-variant hover:text-on-surface px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface self-end sm:self-center shrink-0 transition-colors" onclick="this.closest('section').style.display='none'">
+      Tutup
+    </button>
+</section>
+<!-- MAIN ANALYTICS & BUDGET BENTO GRID -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md" id="quick-stats">
+<!-- CHART SECTION (7 cols on lg) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+<div>
+<h2 class="text-base font-bold text-on-surface tracking-tight">Tren Pengeluaran Harian</h2>
+<p class="text-xs text-on-surface-variant">Komparasi pola transaksi per periode</p>
+</div>
+<!-- Time Filter Segment -->
+<div class="flex items-center p-1 rounded-xl bg-surface-container self-start">
+<button class="chart-tab-btn px-3 py-1 text-xs font-semibold rounded-lg bg-surface-container-lowest text-primary shadow-sm transition-all" id="btn-minggu" onclick="setChartPeriod('minggu')">Minggu Ini</button>
+<button class="chart-tab-btn px-3 py-1 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-on-surface transition-all" id="btn-bulan" onclick="setChartPeriod('bulan')">Bulan Ini</button>
+<button class="chart-tab-btn px-3 py-1 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-on-surface transition-all" id="btn-3bulan" onclick="setChartPeriod('3bulan')">3 Bulan</button>
+</div>
+</div>
+<!-- Mini KPI in Chart -->
+<div class="grid grid-cols-3 gap-2 py-2 px-3 rounded-xl bg-surface-container-low mb-4 text-center">
+<div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant block">Tertinggi</span>
+<span class="text-xs sm:text-sm font-bold text-error">Rp120.000 <span class="text-[10px] text-on-surface-variant font-normal">(Rab)</span></span>
+</div>
+<div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant block">Terendah</span>
+<span class="text-xs sm:text-sm font-bold text-primary">Rp25.000 <span class="text-[10px] text-on-surface-variant font-normal">(Sen)</span></span>
+</div>
+<div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant block">Hari Ini</span>
+<span class="text-xs sm:text-sm font-bold text-on-surface">Rp45.000</span>
+</div>
+</div>
+<!-- Pure SVG Vector Spending Chart (Interactive & Responsive) -->
+<div class="relative w-full h-56 pt-2">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 540 180">
+<defs>
+<lineargradient id="chartGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#0F5132" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#0F5132" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Lines -->
+<line stroke="#d0e9d7" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="540" y1="30" y2="30"></line>
+<line stroke="#d0e9d7" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="540" y1="80" y2="80"></line>
+<line stroke="#d0e9d7" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="540" y1="130" y2="130"></line>
+<line stroke="#c0c9c0" stroke-width="1" x1="0" x2="540" y1="170" y2="170"></line>
+<!-- Background Bar Columns for subtle volume -->
+<rect class="hover:fill-primary-fixed transition-colors" fill="#d5eedd" height="60" rx="4" width="24" x="25" y="110"></rect>
+<rect class="hover:fill-primary-fixed transition-colors" fill="#d5eedd" height="85" rx="4" width="24" x="100" y="85"></rect>
+<rect class="hover:fill-primary-fixed transition-colors" fill="#d5eedd" height="130" rx="4" width="24" x="175" y="40"></rect>
+<rect class="hover:fill-primary-fixed transition-colors" fill="#d5eedd" height="100" rx="4" width="24" x="250" y="70"></rect>
+<rect class="hover:fill-primary-fixed transition-colors" fill="#d5eedd" height="75" rx="4" width="24" x="325" y="95"></rect>
+<rect class="hover:fill-primary-fixed transition-colors" fill="#d5eedd" height="105" rx="4" width="24" x="400" y="65"></rect>
+<rect class="hover:fill-secondary-container transition-colors" fill="#fece57" height="45" rx="4" width="24" x="475" y="125"></rect>
+<!-- Trend Area Fill -->
+<polygon fill="url(#chartGradient)" points="37,110 112,85 187,40 262,70 337,95 412,65 487,125 487,170 37,170"></polygon>
+<!-- Trend Line Graph -->
+<polyline fill="none" points="37,110 112,85 187,40 262,70 337,95 412,65 487,125" stroke="#0F5132" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Dots with interaction markers -->
+<circle cx="37" cy="110" fill="#ffffff" r="4.5" stroke="#0F5132" stroke-width="3"></circle>
+<circle cx="112" cy="85" fill="#ffffff" r="4.5" stroke="#0F5132" stroke-width="3"></circle>
+<!-- Peak Marker -->
+<circle cx="187" cy="40" fill="#ba1a1a" r="6" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="262" cy="70" fill="#ffffff" r="4.5" stroke="#0F5132" stroke-width="3"></circle>
+<circle cx="337" cy="95" fill="#ffffff" r="4.5" stroke="#0F5132" stroke-width="3"></circle>
+<circle cx="412" cy="65" fill="#ffffff" r="4.5" stroke="#0F5132" stroke-width="3"></circle>
+<circle cx="487" cy="125" fill="#775a00" r="5" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="flex justify-between text-[11px] text-on-surface-variant font-medium px-4 mt-2">
+<span>Sen</span>
+<span>Sel</span>
+<span class="text-error font-bold">Rab</span>
+<span>Kam</span>
+<span>Jum</span>
+<span>Sab</span>
+<span class="text-secondary font-bold">Min</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mt-4 pt-3 bg-surface-container-low rounded-xl px-3 py-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-primary inline-block"></span>
+<span>Pola Normal</span>
+<span class="w-3 h-3 rounded bg-secondary-container inline-block ml-2"></span>
+<span>Hari Ini</span>
+</div>
+<span class="font-medium text-primary">Sesuai proyeksi bulanan</span>
+</div>
+</div>
+<!-- BUDGET SECTION (5 cols on lg) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">savings</span>
+<h2 class="text-base font-bold text-on-surface tracking-tight">Budget Bulan Ini</h2>
+</div>
+<span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">
+            70% Terpakai
+          </span>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">Total alokasi biaya hidup &amp; kuliah per semester</p>
+<!-- Main Budget Progress Card -->
+<div class="rounded-xl bg-surface-container-low p-3 mb-4">
+<div class="flex justify-between items-baseline text-xs mb-1.5">
+<span class="text-on-surface-variant">Terpakai: <strong class="text-on-surface font-bold">Rp1.435.000</strong></span>
+<span class="text-on-surface-variant">Batas: <strong class="text-on-surface font-bold">Rp2.050.000</strong></span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full transition-all duration-700" style="width: 70%"></div>
+</div>
+<div class="flex justify-between items-center mt-2 text-xs">
+<span class="text-on-surface-variant flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Sisa 5 Hari
+            </span>
+<span class="text-primary font-bold">Sisa: Rp615.000</span>
+</div>
+</div>
+<!-- Mini Category Progress Breakdown -->
+<h3 class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2.5">
+          Pos Anggaran Mahasiswa
+        </h3>
+<div class="space-y-2.5">
+<!-- Makanan (85% - Warning) -->
+<div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="flex items-center gap-1.5 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-secondary">restaurant</span>
+                Makanan &amp; Minuman
+              </span>
+<span class="text-xs font-bold text-secondary">85% (Rp680k / 800k)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Kos & Kebutuhan Kamar (88% - Warning) -->
+<div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="flex items-center gap-1.5 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-secondary">home</span>
+                Kos &amp; Utilitas
+              </span>
+<span class="text-xs font-bold text-secondary">88% (Rp440k / 500k)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Transportasi (81% - Warning) -->
+<div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="flex items-center gap-1.5 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-secondary">directions_bike</span>
+                Transportasi &amp; Bensin
+              </span>
+<span class="text-xs font-bold text-secondary">81% (Rp162k / 200k)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 81%"></div>
+</div>
+</div>
+<!-- Pendidikan (50% - Aman) -->
+<div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="flex items-center gap-1.5 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary">menu_book</span>
+                Pendidikan &amp; Buku
+              </span>
+<span class="text-xs font-bold text-primary">50% (Rp150k / 300k)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 50%"></div>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-2 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high font-semibold text-xs flex items-center justify-center gap-1 transition-all" onclick="openModal('budget-detail')">
+<span>Atur Alokasi Dompet</span>
+<span class="material-symbols-outlined text-base">tune</span>
+</button>
+</div>
+</section>
+<!-- RECENT TRANSACTIONS SECTION -->
+<section class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+<div>
+<h2 class="text-base font-bold text-on-surface tracking-tight">Transaksi Terbaru</h2>
+<p class="text-xs text-on-surface-variant">Catatan aktivitas keuangan kampus minggu ini</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<input class="pl-8 pr-3 py-1.5 rounded-xl bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container transition-colors w-40 sm:w-56" id="search-input" onkeyup="filterTransactions()" placeholder="Cari transaksi..." type="text"/>
+<span class="material-symbols-outlined text-sm absolute left-2.5 top-2 text-on-surface-variant">search</span>
+</div>
+<button class="px-3 py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container text-xs font-semibold flex items-center gap-1 shadow-sm" onclick="openModal('add-transaction')">
+<span class="material-symbols-outlined text-sm">add</span>
+          Tambah
+        </button>
+</div>
+</div>
+<!-- Desktop Table View (Hidden on mobile) -->
+<div class="hidden md:block overflow-x-auto">
+<table class="w-full text-left text-xs" id="tx-table">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant uppercase tracking-wider font-semibold text-[10px]">
+<th class="py-3 px-4 rounded-l-xl">Transaksi &amp; Merchant</th>
+<th class="py-3 px-4">Kategori</th>
+<th class="py-3 px-4">Waktu</th>
+<th class="py-3 px-4">Status &amp; Bukti</th>
+<th class="py-3 px-4 text-right rounded-r-xl">Nominal</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface" id="tx-body-desktop">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 font-semibold flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-base">restaurant</span>
+</div>
+<div>
+<span class="font-bold text-on-surface block text-sm">Nasi Padang Ampera Sigura-gura</span>
+<span class="text-[11px] text-on-surface-variant font-normal">Makan siang bareng prodi</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-medium">Makanan</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<span>Hari Ini, 12:45</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-[11px] text-primary font-medium bg-primary-fixed px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-xs">qr_code_scanner</span> Nota Terverifikasi
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right font-bold text-error text-sm">
+              -Rp18.000
+            </td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 font-semibold flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-base">payments</span>
+</div>
+<div>
+<span class="font-bold text-on-surface block text-sm">Honor Asisten Dosen Algoritma</span>
+<span class="text-[11px] text-on-surface-variant font-normal">Transfer Lab Komputer Fakultas</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-medium text-[11px]">Akademik / Gaji</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<span>Kemarin, 16:15</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-[11px] text-on-surface-variant font-medium bg-surface-container px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-xs">check_circle</span> Transfer Bank
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right font-bold text-primary text-sm">
+              +Rp500.000
+            </td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 font-semibold flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-base">print</span>
+</div>
+<div>
+<span class="font-bold text-on-surface block text-sm">Fotocopy Modul Jaringan Komputer</span>
+<span class="text-[11px] text-on-surface-variant font-normal">Koperasi Mahasiswa UIN</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-medium">Pendidikan</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<span>23 Sep, 10:20</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-[11px] text-primary font-medium bg-primary-fixed px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-xs">receipt_long</span> Scan Struk
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right font-bold text-error text-sm">
+              -Rp25.000
+            </td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3.5 px-4 font-semibold flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-base">local_gas_station</span>
+</div>
+<div>
+<span class="font-bold text-on-surface block text-sm">Isi Bensin Pertalite Motor</span>
+<span class="text-[11px] text-on-surface-variant font-normal">SPBU Dinoyo Malang</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-medium">Transportasi</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<span>22 Sep, 08:00</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 text-[11px] text-on-surface-variant font-medium bg-surface-container px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-xs">point_of_sale</span> Cash Tunai
+              </span>
+</td>
+<td class="py-3.5 px-4 text-right font-bold text-error text-sm">
+              -Rp30.000
+            </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Mobile Responsive Cards View (Shown on < md) -->
+<div class="flex flex-col gap-2.5 md:hidden" id="tx-body-mobile">
+<!-- Mobile Item 1 -->
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-lg">restaurant</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-bold text-on-surface truncate">Nasi Padang Ampera Sigura-gura</h3>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant mt-0.5">
+<span>Hari Ini, 12:45</span>
+<span>•</span>
+<span class="text-primary font-medium">Nota</span>
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-xs font-bold text-error block">-Rp18.000</span>
+<span class="text-[9px] px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed">Makanan</span>
+</div>
+</div>
+<!-- Mobile Item 2 -->
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-lg">payments</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-bold text-on-surface truncate">Honor Asisten Dosen Algoritma</h3>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant mt-0.5">
+<span>Kemarin, 16:15</span>
+<span>•</span>
+<span>BSI Transfer</span>
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-xs font-bold text-primary block">+Rp500.000</span>
+<span class="text-[9px] px-1.5 py-0.5 rounded bg-primary-fixed text-primary">Pemasukan</span>
+</div>
+</div>
+<!-- Mobile Item 3 -->
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-lg">print</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-bold text-on-surface truncate">Fotocopy Modul Jaringan</h3>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant mt-0.5">
+<span>23 Sep, 10:20</span>
+<span>•</span>
+<span class="text-primary font-medium">Nota</span>
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-xs font-bold text-error block">-Rp25.000</span>
+<span class="text-[9px] px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">Pendidikan</span>
+</div>
+</div>
+</div>
+<!-- Pagination & History Link -->
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="text-xs text-on-surface-variant">Menampilkan 4 dari 32 transaksi</span>
+<a class="text-xs font-bold text-primary hover:underline flex items-center gap-1" href="../daftarTransaksi/index.html">
+        Lihat Semua Catatan
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- QUICK FEATURE BANNER FOR UIN MAHASISWA -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- QRIS Scanner Quick Feature -->
+<div class="p- space-md rounded-2xl bg-surface-container-low p-4 flex items-center gap-4 hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl">document_scanner</span>
+</div>
+<div class="flex-1">
+<h4 class="text-xs font-bold text-on-surface">Scan Struk / Nota Kantin</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Otomatis ekstraksi harga kantin SC atau warung makan dengan OCR pintar Maliki.</p>
+</div>
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-high hover:bg-primary hover:text-on-primary text-xs font-semibold text-primary transition-colors shrink-0" onclick="window.location.href='../scanNota/index.html'">
+        Scan
+      </button>
+</div>
+<!-- Reminder SPP / UKT -->
+<div class="p- space-md rounded-2xl bg-surface-container-low p-4 flex items-center gap-4 hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl">event_available</span>
+</div>
+<div class="flex-1">
+<h4 class="text-xs font-bold text-on-surface">Target Tabungan UKT Ganjil</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Terkumpul Rp1.800.000 dari target Rp3.000.000. Tersisa 42 hari.</p>
+</div>
+<button class="px-3 py-1.5 rounded-xl bg-surface-container-high hover:bg-secondary-container hover:text-on-secondary-container text-xs font-semibold text-secondary transition-colors shrink-0" onclick="openModal('quick-topup')">
+        Nabung
+      </button>
+</div>
+</section>
+<!-- INTERACTIVE MODAL: + Tambah Transaksi -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200" id="modal-add-transaction">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-3xl shadow-2xl p-6 relative flex flex-col max-h-[921px] overflow-y-auto transform scale-95 transition-transform duration-200" id="modal-box">
+<!-- Close button -->
+<button class="absolute top-5 right-5 w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeModal('add-transaction')">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<!-- Modal Title -->
+<div class="mb-4">
+<span class="text-[11px] font-bold uppercase tracking-wider text-primary">Form Pencatatan</span>
+<h3 class="text-lg font-bold text-on-surface">Tambah Transaksi Baru</h3>
+</div>
+<!-- Type Toggle: Pengeluaran / Pemasukan -->
+<div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-surface-container mb-4">
+<button class="py-2 rounded-xl text-xs font-bold bg-surface-container-lowest text-error shadow-sm transition-all flex items-center justify-center gap-1.5" id="tab-modal-expense" onclick="switchTxType('expense')" type="button">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+          Pengeluaran
+        </button>
+<button class="py-2 rounded-xl text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5" id="tab-modal-income" onclick="switchTxType('income')" type="button">
+<span class="material-symbols-outlined text-sm">south_west</span>
+          Pemasukan
+        </button>
+</div>
+<!-- Transaction Form -->
+<form class="space-y-3.5" id="tx-form" onsubmit="handleFormSubmit(event)">
+<!-- Nominal Input with Rupiah Prefix -->
+<div>
+<label class="text-[11px] font-bold text-on-surface-variant block mb-1">Nominal (Rupiah)*</label>
+<div class="relative">
+<span class="absolute left-3 top-2.5 text-xs font-bold text-on-surface-variant">Rp</span>
+<input class="w-full pl-9 pr-3 py-2.5 rounded-xl bg-surface-container-low text-base font-bold text-on-surface outline-none focus:bg-surface-container transition-colors" id="tx-amount" placeholder="0" required="" type="number"/>
+</div>
+</div>
+<!-- Title / Merchant -->
+<div>
+<label class="text-[11px] font-bold text-on-surface-variant block mb-1">Judul / Merchant*</label>
+<input class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none focus:bg-surface-container transition-colors" id="tx-title" placeholder="Misal: Sarapan Warteg Dinoyo / Kiriman Ortu" required="" type="text"/>
+</div>
+<!-- Category Dropdown -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="text-[11px] font-bold text-on-surface-variant block mb-1">Kategori*</label>
+<select class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none focus:bg-surface-container transition-colors" id="tx-category">
+<option value="Makanan">🍲 Makanan &amp; Minuman</option>
+<option value="Pendidikan">📚 Pendidikan &amp; Kuliah</option>
+<option value="Kos &amp; Hunian">🏠 Kos &amp; Hunian</option>
+<option value="Transportasi">🛵 Transportasi</option>
+<option value="Hiburan">☕ Nongkrong / Hiburan</option>
+<option value="Lainnya">📦 Lain-lain</option>
+</select>
+</div>
+<div>
+<label class="text-[11px] font-bold text-on-surface-variant block mb-1">Tanggal Transaksi</label>
+<input class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none focus:bg-surface-container transition-colors" id="tx-date" type="date" value="2026-09-25"/>
+</div>
+</div>
+<!-- Notes / Catatan -->
+<div>
+<label class="text-[11px] font-bold text-on-surface-variant block mb-1">Catatan Tambahan (Opsional)</label>
+<textarea class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-xs text-on-surface outline-none focus:bg-surface-container transition-colors resize-none" id="tx-notes" placeholder="Tulis detail singkat jika diperlukan..." rows="2"></textarea>
+</div>
+<!-- Attachment Simulation -->
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">receipt</span>
+<span class="text-xs text-on-surface font-medium">Lampirkan Bukti / Struk</span>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface text-xs font-semibold text-primary hover:bg-surface-container transition-colors" onclick="alert('Simulasi: Lampiran nota berhasil dipilih!')" type="button">
+            Upload
+          </button>
+</div>
+<!-- Action Submit Buttons -->
+<div class="flex items-center justify-end gap-2 pt-3">
+<button class="px-4 py-2.5 rounded-xl bg-surface-container text-xs font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="closeModal('add-transaction')" type="button">
+            Batal
+          </button>
+<button class="px-5 py-2.5 rounded-xl bg-primary text-xs font-bold text-on-primary hover:bg-primary-container shadow-md transition-all active:scale-95 flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-sm">save</span>
+            Simpan Transaksi
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- GENERIC NOTIFICATION TOAST -->
+<div class="fixed bottom-6 right-6 z-50 bg-primary text-on-primary px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toast-msg">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<span class="text-xs font-semibold" id="toast-text">Transaksi berhasil disimpan!</span>
+</div>
+</div>
+<!-- CLIENT JAVASCRIPT MICRO-INTERACTIONS -->
+<script>
+  let isSaldoVisible = true;
+  let currentTxType = 'expense';
+
+  // Toggle Saldo Visibility
+  function toggleSaldoVisibility() {
+    isSaldoVisible = !isSaldoVisible;
+    const saldoText = document.getElementById('saldo-text');
+    const saldoHidden = document.getElementById('saldo-hidden');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    if (isSaldoVisible) {
+      saldoText.classList.remove('hidden');
+      saldoHidden.classList.add('hidden');
+      eyeIcon.innerText = 'visibility';
+    } else {
+      saldoText.classList.add('hidden');
+      saldoHidden.classList.remove('hidden');
+      eyeIcon.innerText = 'visibility_off';
+    }
+  }
+
+  // Open / Close Modal Logic
+  function openModal(type) {
+    const modal = document.getElementById('modal-add-transaction');
+    const box = document.getElementById('modal-box');
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+      modal.classList.remove('opacity-0');
+      box.classList.remove('scale-95');
+      box.classList.add('scale-100');
+    }, 10);
+  }
+
+  function closeModal(type) {
+    const modal = document.getElementById('modal-add-transaction');
+    const box = document.getElementById('modal-box');
+    modal.classList.add('opacity-0');
+    box.classList.remove('scale-100');
+    box.classList.add('scale-95');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 200);
+  }
+
+  // Switch Expense vs Income inside Modal
+  function switchTxType(type) {
+    currentTxType = type;
+    const tabExpense = document.getElementById('tab-modal-expense');
+    const tabIncome = document.getElementById('tab-modal-income');
+
+    if (type === 'expense') {
+      tabExpense.className = 'py-2 rounded-xl text-xs font-bold bg-surface-container-lowest text-error shadow-sm transition-all flex items-center justify-center gap-1.5';
+      tabIncome.className = 'py-2 rounded-xl text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5';
+    } else {
+      tabIncome.className = 'py-2 rounded-xl text-xs font-bold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center justify-center gap-1.5';
+      tabExpense.className = 'py-2 rounded-xl text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5';
+    }
+  }
+
+  // Submit Transaction Form & Update DOM
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const amount = document.getElementById('tx-amount').value;
+    const title = document.getElementById('tx-title').value;
+    const category = document.getElementById('tx-category').value;
+    const formattedAmount = parseInt(amount, 10).toLocaleString('id-ID');
+    const isExp = currentTxType === 'expense';
+
+    // Prepend to desktop table
+    const tableBody = document.getElementById('tx-body-desktop');
+    const newRow = document.createElement('tr');
+    newRow.className = 'hover:bg-surface-container-low transition-colors group animate-fade-in';
+    newRow.innerHTML = `
+      <td class="py-3.5 px-4 font-semibold flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl ${isExp ? 'bg-surface-container text-on-surface-variant' : 'bg-primary-fixed text-primary'} flex items-center justify-center group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-base">${isExp ? 'shopping_bag' : 'payments'}</span>
+        </div>
+        <div>
+          <span class="font-bold text-on-surface block text-sm">${title}</span>
+          <span class="text-[11px] text-on-surface-variant font-normal">Input Langsung Hari Ini</span>
+        </div>
+      </td>
+      <td class="py-3.5 px-4">
+        <span class="px-2.5 py-1 rounded-full ${isExp ? 'bg-secondary-fixed text-on-secondary-fixed' : 'bg-primary-container text-on-primary'} text-[11px] font-medium">${category}</span>
+      </td>
+      <td class="py-3.5 px-4 text-on-surface-variant">Baru Saja</td>
+      <td class="py-3.5 px-4">
+        <span class="inline-flex items-center gap-1 text-[11px] text-primary font-medium bg-primary-fixed px-2 py-0.5 rounded-md">
+          <span class="material-symbols-outlined text-xs">done</span> Baru Dicatat
+        </span>
+      </td>
+      <td class="py-3.5 px-4 text-right font-bold ${isExp ? 'text-error' : 'text-primary'} text-sm">
+        ${isExp ? '-' : '+'}Rp${formattedAmount}
+      </td>
+    `;
+    tableBody.insertBefore(newRow, tableBody.firstChild);
+
+    // Prepend to mobile list
+    const mobileBody = document.getElementById('tx-body-mobile');
+    const newCard = document.createElement('div');
+    newCard.className = 'p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3 animate-fade-in';
+    newCard.innerHTML = `
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-10 h-10 rounded-xl ${isExp ? 'bg-surface-container text-on-surface-variant' : 'bg-primary-fixed text-primary'} flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-lg">${isExp ? 'shopping_bag' : 'payments'}</span>
+        </div>
+        <div class="min-w-0">
+          <h3 class="text-xs font-bold text-on-surface truncate">${title}</h3>
+          <div class="flex items-center gap-1 text-[10px] text-on-surface-variant mt-0.5">
+            <span>Baru Saja</span>
+            <span>&bull;</span>
+            <span class="text-primary font-medium">${category}</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-right shrink-0">
+        <span class="text-xs font-bold ${isExp ? 'text-error' : 'text-primary'} block">${isExp ? '-' : '+'}Rp${formattedAmount}</span>
+        <span class="text-[9px] px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">${isExp ? 'Pengeluaran' : 'Pemasukan'}</span>
+      </div>
+    `;
+    mobileBody.insertBefore(newCard, mobileBody.firstChild);
+
+    // Close & show toast
+    closeModal('add-transaction');
+    document.getElementById('tx-form').reset();
+    showToast(`Transaksi "${title}" berhasil disimpan!`);
+  }
+
+  // Show Toast
+  function showToast(text) {
+    const toast = document.getElementById('toast-msg');
+    const toastText = document.getElementById('toast-text');
+    toastText.innerText = text;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 3200);
+  }
+
+  // Switch Chart Period Tab Styling
+  function setChartPeriod(period) {
+    const tabs = ['minggu', 'bulan', '3bulan'];
+    tabs.forEach(tab => {
+      const btn = document.getElementById(`btn-${tab}`);
+      if (tab === period) {
+        btn.className = 'chart-tab-btn px-3 py-1 text-xs font-semibold rounded-lg bg-surface-container-lowest text-primary shadow-sm transition-all';
+      } else {
+        btn.className = 'chart-tab-btn px-3 py-1 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-on-surface transition-all';
+      }
+    });
+  }
+
+  // Simple In-Table Filter
+  function filterTransactions() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const rows = document.querySelectorAll('#tx-body-desktop tr');
+    rows.forEach(r => {
+      const text = r.innerText.toLowerCase();
+      r.style.display = text.includes(query) ? '' : 'none';
+    });
+  }
+</script></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-40 px-space-sm">
+  <nav class="h-full flex items-center justify-around" data-active-classes="text-primary font-headline-sm">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-primary font-headline-sm" data-path="dashboard" href="../dashboard/index.html">
+      <span class="material-symbols-outlined text-xl">space_dashboard</span>
+      <span class="font-label-sm text-label-sm">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="transaksi" href="../daftarTransaksi/index.html">
+      <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+      <span class="font-label-sm text-label-sm">Transaksi</span>
+    </a>
+    <div class="flex-1 flex justify-center -mt-5">
+      <button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg hover:bg-primary-container transition-transform active:scale-95 cursor-pointer" onclick="openModal('add-transaction')" title="Catat Transaksi">
+        <span class="material-symbols-outlined text-2xl">add</span>
+      </button>
+    </div>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="budget" href="../budget/index.html">
+      <span class="material-symbols-outlined text-xl">savings</span>
+      <span class="font-label-sm text-label-sm">Budget</span>
+    </a>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="profil" href="../profil/index.html">
+      <span class="material-symbols-outlined text-xl">person</span>
+      <span class="font-label-sm text-label-sm">Profil</span>
+    </a>
+  </nav>
+</div>
+<script id="maliki-nav-common">
+  function toggleMobileSidebar() {
+    const sidebar = document.getElementById('app-sidebar');
+    const backdrop = document.getElementById('mobile-sidebar-backdrop');
+    if (!sidebar || !backdrop) return;
+    const isHidden = sidebar.classList.contains('hidden');
+    if (isHidden) {
+      sidebar.classList.remove('hidden');
+      sidebar.classList.add('flex', 'z-[60]');
+      backdrop.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('hidden');
+      sidebar.classList.remove('flex', 'z-[60]');
+      backdrop.classList.add('hidden');
+    }
+  }
+
+  function toggleNotificationsMenu(event) {
+    if (event) event.stopPropagation();
+    const dropdown = document.getElementById('notifications-dropdown');
+    if (dropdown) {
+      dropdown.classList.toggle('hidden');
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('notifications-dropdown');
+    if (dropdown && !dropdown.classList.contains('hidden')) {
+      const bell = e.target.closest('[data-path="notifikasi"]');
+      if (!bell && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    }
+  });
+</script>
+
+</body></html>

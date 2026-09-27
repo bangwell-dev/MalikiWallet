@@ -1,0 +1,139 @@
+{
+  "user": {
+    "name": "Muhammad Wildan",
+    "university": "UIN Maulana Malik Ibrahim Malang",
+    "faculty": "Sains dan Teknologi",
+    "major": "Teknik Informatika",
+    "semester": 4,
+    "email": "wildan@student.uin-malang.ac.id",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+    "balance": 2450000,
+    "monthly_income": 3200000,
+    "monthly_expense": 1850000
+  },
+  "budgets": [
+    {
+      "id": "BDG001",
+      "category": "Makanan & Minuman",
+      "allocated": 800000,
+      "spent": 680000,
+      "percentage": 40,
+      "icon": "utensils",
+      "color": "#0F5132"
+    },
+    {
+      "id": "BDG002",
+      "category": "Pendidikan & Kuliah",
+      "allocated": 400000,
+      "spent": 200000,
+      "percentage": 20,
+      "icon": "book-open",
+      "color": "#C59B27"
+    },
+    {
+      "id": "BDG003",
+      "category": "Transportasi",
+      "allocated": 300000,
+      "spent": 245000,
+      "percentage": 15,
+      "icon": "motorcycle",
+      "color": "#2563EB"
+    },
+    {
+      "id": "BDG004",
+      "category": "Kebutuhan Kos & Hidup",
+      "allocated": 350000,
+      "spent": 310000,
+      "percentage": 15,
+      "icon": "home",
+      "color": "#7C3AED"
+    },
+    {
+      "id": "BDG005",
+      "category": "Hiburan & Refreshing",
+      "allocated": 200000,
+      "spent": 215000,
+      "percentage": 10,
+      "icon": "smile",
+      "color": "#E11D48"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "TRX001",
+      "title": "Makan Siang Warteg Gajayana",
+      "category": "Makanan & Minuman",
+      "type": "expense",
+      "amount": 22000,
+      "date": "2026-09-25",
+      "time": "12:45",
+      "note": "Makan siang setelah praktikum algo",
+      "receipt_scanned": true
+    },
+    {
+      "id": "TRX002",
+      "title": "Beasiswa Prestasi Tahfidz",
+      "category": "Pendidikan",
+      "type": "income",
+      "amount": 1500000,
+      "date": "2026-09-24",
+      "time": "09:30",
+      "note": "Cair dari rektorat semester 4",
+      "receipt_scanned": false
+    },
+    {
+      "id": "TRX003",
+      "title": "Bensin Vario & Servis Ringan",
+      "category": "Transportasi",
+      "type": "expense",
+      "amount": 45000,
+      "date": "2026-09-24",
+      "time": "16:15",
+      "note": "Isi pertalite pom Dinoyo",
+      "receipt_scanned": false
+    },
+    {
+      "id": "TRX004",
+      "title": "Print Modul Kuliah & Buku Diktat",
+      "category": "Pendidikan",
+      "type": "expense",
+      "amount": 35000,
+      "date": "2026-09-23",
+      "time": "14:10",
+      "note": "Fotocopy samping gerbang UIN Malang",
+      "receipt_scanned": true
+    },
+    {
+      "id": "TRX005",
+      "title": "Kiriman Uang Saku Bulanan",
+      "category": "Pemasukan",
+      "type": "income",
+      "amount": 1700000,
+      "date": "2026-09-20",
+      "time": "08:00",
+      "note": "Transfer dari orang tua",
+      "receipt_scanned": false
+    },
+    {
+      "id": "TRX006",
+      "title": "Kopi & Wifi Nugas di Kafe Soehat",
+      "category": "Hiburan & Refreshing",
+      "type": "expense",
+      "amount": 28000,
+      "date": "2026-09-19",
+      "time": "20:30",
+      "note": "Diskusi kelompok tugas web",
+      "receipt_scanned": false
+    }
+  ],
+  "categories": [
+    "Makanan & Minuman",
+    "Pendidikan & Kuliah",
+    "Transportasi",
+    "Kebutuhan Kos & Hidup",
+    "Hiburan & Refreshing",
+    "Kesehatan & Obat",
+    "Tagihan & Pulsa",
+    "Lainnya"
+  ]
+}

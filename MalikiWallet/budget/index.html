@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<title>Pengaturan Budget - MalikiWallet | UIN Maliki Malang</title>
+<link rel="icon" type="image/jpeg" href="../Logo.jpeg"/>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
+  <div class="flex flex-col gap-space-lg">
+    <!-- Header with Logo & Mobile Close Button -->
+    <div class="flex items-center justify-between">
+      <a href="../dashboard/index.html" class="flex items-center gap-space-sm px-space-xs group cursor-pointer" title="Kembali ke Dashboard">
+        <img alt="MalikiWallet Logo" class="h-9 w-9 object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform" src="../Logo.jpeg" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">MalikiWallet</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant">UIN Maulana Malik Ibrahim</span>
+        </div>
+      </a>
+      <button aria-label="Tutup Menu" onclick="toggleMobileSidebar()" class="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <!-- Quick Action: Tambah Transaksi -->
+    <button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-3 px-space-md rounded-xl shadow-md hover:bg-primary-container hover:text-on-primary transition-all duration-200 font-label-lg text-label-lg active:scale-95 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html?action=new'">
+      <span class="material-symbols-outlined text-lg">add_circle</span>
+      <span>+ Tambah Transaksi</span>
+    </button>
+
+    <!-- Main Navigation Links -->
+    <nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm">
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="dashboard" href="../dashboard/index.html">
+          <span class="material-symbols-outlined text-xl">space_dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="transaksi" href="../daftarTransaksi/index.html">
+          <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+          <span>Transaksi</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors bg-primary-container text-on-primary-container font-headline-sm shadow-sm" data-path="budget" href="../budget/index.html">
+          <span class="material-symbols-outlined text-xl">savings</span>
+          <span>Budget</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="analisis" href="../analisis/index.html">
+          <span class="material-symbols-outlined text-xl">monitoring</span>
+          <span>Analisis</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="scan-nota" href="../scanNota/index.html">
+          <span class="material-symbols-outlined text-xl">qr_code_scanner</span>
+          <span>Scan Nota</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="profil" href="../profil/index.html">
+          <span class="material-symbols-outlined text-xl">person</span>
+          <span>Profil</span>
+        </a>
+    </nav>
+  </div>
+
+  <!-- User Profile Card in Sidebar Footer -->
+  <a href="../profil/index.html" class="bg-surface-container hover:bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-sm transition-colors group cursor-pointer block" title="Kelola Profil & SIAKAD">
+    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+      <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+    </div>
+    <div class="flex flex-col min-w-0 flex-1">
+      <span class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Muhammad Wildan</span>
+      <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Teknik Informatika</span>
+    </div>
+    <span class="material-symbols-outlined text-lg text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+  </a>
+</aside>
+<div id="mobile-sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden transition-opacity lg:hidden"></div><div class="lg:pl-72"><header class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-md lg:px-space-xl flex items-center justify-between">
+  <div class="flex items-center gap-space-sm">
+    <button aria-label="Menu Navigation" onclick="toggleMobileSidebar()" class="lg:hidden p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg cursor-pointer">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+    <a href="../dashboard/index.html" class="flex items-center gap-space-xs lg:hidden group cursor-pointer">
+      <img alt="MalikiWallet Logo" class="h-8 w-8 object-contain rounded-md shadow-xs group-hover:scale-105 transition-transform" src="../Logo.jpeg" />
+      <span class="font-headline-sm text-headline-sm text-primary">MalikiWallet</span>
+    </a>
+  </div>
+  <div class="flex items-center gap-space-md">
+    <!-- Notification Bell with Interactive Dropdown -->
+    <div class="relative">
+      <button onclick="toggleNotificationsMenu(event)" class="p-space-xs rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors relative cursor-pointer" data-path="notifikasi" title="Notifikasi Keuangan Kampus">
+        <span class="material-symbols-outlined text-2xl">notifications</span>
+        <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+      </button>
+      <div id="notifications-dropdown" class="hidden absolute right-0 mt-2 w-80 sm:w-96 bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-4 z-50 text-left">
+        <div class="flex items-center justify-between pb-3 border-b border-surface-container">
+          <span class="font-headline-sm text-sm font-bold text-primary">Notifikasi Mahasiswa</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-semibold">3 Baru</span>
+        </div>
+        <div class="flex flex-col gap-2.5 mt-3 max-h-72 overflow-y-auto">
+          <div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html'">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">account_balance</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Transfer Masuk Berhasil</span>
+              <span class="text-on-surface-variant block mt-0.5">Kiriman Uang Saku Bulanan Rp1.700.000 telah masuk ke Rekening BSI.</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">Hari ini, 08:00</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-secondary-fixed/20 hover:bg-secondary-fixed/30 transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../budget/index.html'">
+            <span class="material-symbols-outlined text-secondary text-xl mt-0.5">warning</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Peringatan Pos Anggaran</span>
+              <span class="text-on-surface-variant block mt-0.5">Budget Makanan & Minuman sudah terpakai 85%. Tetap hemat!</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">Kemarin, 19:30</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html'">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">school</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Beasiswa Tahfidz Cair</span>
+              <span class="text-on-surface-variant block mt-0.5">Dana beasiswa prestasi semester 4 telah diverifikasi rektorat.</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">24 Sept 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Profile Header Pill -->
+    <a href="../profil/index.html" class="hidden sm:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container transition-colors py-1.5 px-space-md rounded-full group cursor-pointer" title="Buka Profil Mahasiswa">
+      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Muhammad Wildan</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM 210605110000</span>
+      </div>
+    </a>
+    <a href="../profil/index.html" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer" title="Buka Profil Mahasiswa">
+      <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+    </a>
+  </div>
+</header><main class="w-full pt-16 pb-24 lg:pb-12 bg-surface min-h-screen px-space-md lg:px-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+          Semester Ganjil 2026/2027 • UIN Maliki Malang
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+          Prinsip Barakah &amp; Disiplin
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Pengaturan &amp; Alokasi Budget Mahasiswa</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Rencanakan batas pengeluaran bulanan agar kuliah tenang tanpa boncos, barakah, dan terhindar dari pemborosan.</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-xl bg-surface-container-lowest text-primary hover:bg-surface-container-high transition-colors font-label-lg text-label-lg shadow-sm" onclick="openCopyModal()">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+<span>Salin Bulan Lalu</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-xl bg-primary-container text-on-primary hover:bg-primary transition-all duration-200 shadow-md font-label-lg text-label-lg active:scale-95" onclick="openBudgetModal()">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span>+ Tambah Pos Budget</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Total Pagu Anggaran</span>
+<span class="font-display-lg text-[2rem] leading-tight text-primary mt-1">Rp2.050.000<span class="text-sm font-normal text-on-surface-variant font-body-sm"> / bln</span></span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">64% dari pemasukan (Rp3.200.000)</span>
+<span class="font-bold text-primary">Sehat &amp; Ideal</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Realisasi Pengeluaran</span>
+<span class="font-display-lg text-[2rem] leading-tight text-secondary mt-1">Rp1.435.000<span class="text-sm font-semibold text-secondary font-body-sm"> (70%)</span></span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">trending_up</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Sisa hari kuliah: <strong class="text-on-surface">5 Hari</strong></span>
+<span class="text-on-surface-variant">Rata-rata aman: <strong class="text-primary">Rp123.000/hari</strong></span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full" style="width: 70%"></div>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Sisa Kuota Budget Bebas</span>
+<span class="font-display-lg text-[2rem] leading-tight text-primary-container mt-1">Rp615.000</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl">savings</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="inline-flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-base">check_circle</span>
+            Aman • Tidak Overbudget
+          </span>
+<span class="text-on-surface-variant">Penyelamat UKT</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-fixed-dim rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-2xl bg-secondary-container/25 p-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5 sm:mt-0">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-secondary-container">Peringatan Pos Anggaran Kritis</span>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant mt-0.5">
+          2 kategori telah melampaui ambang 80% kuota: <strong>Kos &amp; Utilitas (88%)</strong> dan <strong>Makanan Kantin/Warteg (85%)</strong>. Disarankan rem jajan di sisa 5 hari terakhir bulan ini!
+        </p>
+</div>
+</div>
+<button class="shrink-0 px-4 py-2 rounded-xl bg-on-secondary-container text-surface-container-lowest font-label-lg text-label-lg hover:opacity-90 transition-opacity" onclick="filterCritical()">
+      Tinjau 2 Pos
+    </button>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Alokasi Budget per Kategori</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dipetakan menurut pola konsumsi mahasiswa kampus Gajayana &amp; Ma'had</p>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0">
+<button class="cat-pill px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm transition-colors whitespace-nowrap" id="btn-cat-all" onclick="filterCategory('all')">Semua (6)</button>
+<button class="cat-pill px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors whitespace-nowrap" id="btn-cat-warning" onclick="filterCategory('warning')">Kritis (&gt;80%)</button>
+<button class="cat-pill px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors whitespace-nowrap" id="btn-cat-safe" onclick="filterCategory('safe')">Aman (≤80%)</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md" id="budget-cards-grid">
+<div class="budget-card rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow" data-status="warning">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">restaurant</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Makanan &amp; Minuman</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kantin &amp; Warteg Gajayana / Sigura-gura</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shrink-0">
+              Warning 85%
+            </span>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Terpakai</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">Rp680.000</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alokasi Total</span>
+<span class="font-label-lg text-label-lg text-on-surface">Rp800.000 <span class="text-xs font-normal text-on-surface-variant">(39%)</span></span>
+</div>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 85%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Sisa Kuota: <strong class="text-on-surface">Rp120.000</strong></span>
+<span>± Rp24.000 / hari</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors text-center" onclick="editBudget('Makanan &amp; Minuman', 800000, 85)">
+            Sesuaikan Kuota
+          </button>
+<a class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" data-path="transaksi" href="#" title="Lihat Riwayat">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</a>
+</div>
+</div>
+<div class="budget-card rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow" data-status="warning">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-error-container/50 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">home_work</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Kos, Listrik &amp; Air</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sunan Kalijaga &amp; Iuran Sampah</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm shrink-0">
+              Warning 88%
+            </span>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Terpakai</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold">Rp440.000</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alokasi Total</span>
+<span class="font-label-lg text-label-lg text-on-surface">Rp500.000 <span class="text-xs font-normal text-on-surface-variant">(24%)</span></span>
+</div>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 88%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Sisa Kuota: <strong class="text-on-surface">Rp60.000</strong></span>
+<span>Tagihan lunas</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors text-center" onclick="editBudget('Kos, Listrik &amp; Air', 500000, 88)">
+            Sesuaikan Kuota
+          </button>
+<a class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" data-path="transaksi" href="#" title="Lihat Riwayat">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</a>
+</div>
+</div>
+<div class="budget-card rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow" data-status="warning">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/40 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">two_wheeler</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Transportasi &amp; Bensin</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pertalite SPBU Dinoyo &amp; Parkir</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shrink-0">
+              Batas 81%
+            </span>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Terpakai</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">Rp162.000</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alokasi Total</span>
+<span class="font-label-lg text-label-lg text-on-surface">Rp200.000 <span class="text-xs font-normal text-on-surface-variant">(10%)</span></span>
+</div>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full" style="width: 81%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Sisa Kuota: <strong class="text-on-surface">Rp38.000</strong></span>
+<span>± 2x isi tangki</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors text-center" onclick="editBudget('Transportasi &amp; Bensin', 200000, 81)">
+            Sesuaikan Kuota
+          </button>
+<a class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" data-path="transaksi" href="#" title="Lihat Riwayat">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</a>
+</div>
+</div>
+<div class="budget-card rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow" data-status="safe">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Pendidikan &amp; Akademik</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fotocopy Diktat &amp; Modul IT</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm shrink-0">
+              Aman 50%
+            </span>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Terpakai</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Rp150.000</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alokasi Total</span>
+<span class="font-label-lg text-label-lg text-on-surface">Rp300.000 <span class="text-xs font-normal text-on-surface-variant">(15%)</span></span>
+</div>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 50%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Sisa Kuota: <strong class="text-on-surface">Rp150.000</strong></span>
+<span>Cukup untuk UAS</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors text-center" onclick="editBudget('Pendidikan &amp; Akademik', 300000, 50)">
+            Sesuaikan Kuota
+          </button>
+<a class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" data-path="transaksi" href="#" title="Lihat Riwayat">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</a>
+</div>
+</div>
+<div class="budget-card rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow" data-status="safe">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">coffee</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Hiburan &amp; Nugas Kafe</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Coffee Shop Soekarno Hatta</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm shrink-0">
+              Terkendali 76%
+            </span>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Terpakai</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Rp115.000</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alokasi Total</span>
+<span class="font-label-lg text-label-lg text-on-surface">Rp150.000 <span class="text-xs font-normal text-on-surface-variant">(7%)</span></span>
+</div>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 76%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Sisa Kuota: <strong class="text-on-surface">Rp35.000</strong></span>
+<span>1x nongkrong hemat</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors text-center" onclick="editBudget('Hiburan &amp; Nugas Kafe', 150000, 76)">
+            Sesuaikan Kuota
+          </button>
+<a class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" data-path="transaksi" href="#" title="Lihat Riwayat">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</a>
+</div>
+</div>
+<div class="budget-card rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow" data-status="safe">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">volunteer_activism</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Sosial &amp; Infaq Jumat</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Masjid Ulul Albab Kampus 1</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed-dim text-on-primary-fixed font-label-sm text-label-sm shrink-0">
+              Sangat Aman 40%
+            </span>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Terpakai</span>
+<span class="font-headline-sm text-headline-sm text-primary-container font-bold">Rp40.000</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alokasi Total</span>
+<span class="font-label-lg text-label-lg text-on-surface">Rp100.000 <span class="text-xs font-normal text-on-surface-variant">(5%)</span></span>
+</div>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 40%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Sisa Kuota: <strong class="text-on-surface">Rp60.000</strong></span>
+<span>Berkah &amp; Terjaga</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors text-center" onclick="editBudget('Sosial &amp; Infaq Jumat', 100000, 40)">
+            Sesuaikan Kuota
+          </button>
+<a class="flex items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant transition-colors" data-path="transaksi" href="#" title="Lihat Riwayat">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<div class="lg:col-span-7 rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Metode Syariah Mahasiswa</span>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container">Pedoman Ulul Albab</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Formula Budgeting 50 / 30 / 20 Ala Kampus Hijau</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Penyelarasan proporsi bulanan mahasiswa UIN Malang agar kewajiban akademik, kebutuhan pokok kos, dan bekal masa depan terpenuhi secara seimbang.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-display-lg text-[1.5rem] leading-none text-primary font-extrabold">50%</span>
+<span class="material-symbols-outlined text-primary text-xl">school</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Pokok &amp; Kuliah</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Makan kantin, bayar kos, modul diktat &amp; bensin.</p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-display-lg text-[1.5rem] leading-none text-secondary font-extrabold">30%</span>
+<span class="material-symbols-outlined text-secondary text-xl">self_improvement</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Fleksibel &amp; Sosial</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Refreshing nugas kafe, kuota internet &amp; organisasi.</p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-display-lg text-[1.5rem] leading-none text-primary-container font-extrabold">20%</span>
+<span class="material-symbols-outlined text-primary-container text-xl">payments</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Tabungan &amp; Infaq</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Cicilan UKT semester depan, dana darurat, dan sedekah.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-high/60">
+<span class="material-symbols-outlined text-primary text-xl">lightbulb</span>
+<span class="font-body-sm text-body-sm text-on-surface">Tips: Alokasikan infaq subuh atau Jumat sedini mungkin sebelum menghitung pos fleksibel untuk menjaga keberkahan rezeki.</span>
+</div>
+</div>
+<div class="lg:col-span-5 rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Kalkulator Cepat</span>
+<span class="material-symbols-outlined text-primary">calculate</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Simulasi Uang Bulanan Baru</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Masukkan kiriman orang tua / beasiswa untuk rekomendasi otomatis</p>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Nominal Uang Saku (Rp)</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-bold text-primary text-sm">Rp</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-headline-sm text-headline-sm outline-none focus:bg-surface-container-high transition-colors" id="sim-input" oninput="calculateSplit(this.value)" step="50000" type="number" value="2500000"/>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span>Pokok (50%)</span>
+</div>
+<span class="font-bold text-primary" id="split-pokok">Rp1.250.000</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Fleksibel (30%)</span>
+</div>
+<span class="font-bold text-secondary" id="split-fleksibel">Rp750.000</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-fixed-dim"></span>
+<span>Tabungan &amp; Infaq (20%)</span>
+</div>
+<span class="font-bold text-primary-container" id="split-tabungan">Rp500.000</span>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md transition-all text-center" onclick="applySimulatedSplit()">
+        Terapkan Rekomendasi ke Budget Saya
+      </button>
+</div>
+</div>
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">download</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-sm text-headline-sm text-primary">Laporan Evaluasi Budget Bulanan</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unduh rekapitulasi realisasi anggaran untuk pelaporan beasiswa atau evaluasi mandiri (Format PDF).</p>
+</div>
+</div>
+<button class="px-5 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high text-primary font-label-lg text-label-lg transition-colors shrink-0 flex items-center gap-2" onclick="alert('Laporan evaluasi anggaran semester ganjil berhasil diunduh!')">
+<span class="material-symbols-outlined text-lg">description</span>
+<span>Unduh PDF Evaluasi</span>
+</button>
+</div>
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-on-background/40 backdrop-blur-sm" id="budget-modal">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
+<div class="px-space-lg py-space-md bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">tune</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary" id="modal-title">Tambah Pos Anggaran Baru</h3>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="closeBudgetModal()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<form class="p-space-lg flex flex-col gap-space-md" id="budget-form" onsubmit="handleBudgetSubmit(event)">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface">Kategori Pengeluaran Kampus</label>
+<select class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-high transition-colors" id="modal-category">
+<option value="Makanan &amp; Minuman">Makanan &amp; Minuman (Kantin/Warteg)</option>
+<option value="Kos, Listrik &amp; Air">Kos, Listrik &amp; Air (Sunan Kalijaga)</option>
+<option value="Transportasi &amp; Bensin">Transportasi &amp; Bensin Motor</option>
+<option value="Pendidikan &amp; Akademik">Pendidikan &amp; Akademik (Diktat/Ujian)</option>
+<option value="Hiburan &amp; Nugas Kafe">Hiburan &amp; Nugas Kafe</option>
+<option value="Sosial &amp; Infaq Jumat">Sosial &amp; Infaq Jumat Masjid Kampus</option>
+<option value="Lainnya / Tambahan">Lainnya / Pos Khusus Skripsi</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface">Batas Alokasi Anggaran</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-bold text-primary text-sm">Rp</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-high transition-colors" id="modal-amount" placeholder="Contoh: 350000" required="" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface">Ambang Peringatan</label>
+<select class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-high transition-colors" id="modal-threshold">
+<option value="75">Peringatkan di 75%</option>
+<option selected="" value="80">Peringatkan di 80%</option>
+<option value="90">Peringatkan di 90%</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface">Periode Reset</label>
+<input class="w-full px-3 py-2.5 rounded-xl bg-surface-container text-on-surface-variant font-body-md text-body-md outline-none" disabled="" type="text" value="Bulanan (Tgl 1)"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface">Catatan Pribadi / Reminder Pengingat</label>
+<input class="w-full px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-high transition-colors" id="modal-notes" placeholder="Misal: Batasi jajan boba maksimal 2x seminggu" type="text"/>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-4 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeBudgetModal()" type="button">
+            Batal
+          </button>
+<button class="px-5 py-2.5 rounded-xl bg-primary-container text-on-primary hover:bg-primary font-label-lg text-label-lg shadow-sm transition-all duration-200" type="submit">
+            Simpan Pos Anggaran
+          </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+  function formatRupiah(num) {
+    return 'Rp' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  function calculateSplit(val) {
+    const amount = Number(val) || 0;
+    const pokok = Math.round(amount * 0.5);
+    const fleksibel = Math.round(amount * 0.3);
+    const tabungan = Math.round(amount * 0.2);
+
+    const elPokok = document.getElementById('split-pokok');
+    const elFleksibel = document.getElementById('split-fleksibel');
+    const elTabungan = document.getElementById('split-tabungan');
+
+    if (elPokok) elPokok.textContent = formatRupiah(pokok);
+    if (elFleksibel) elFleksibel.textContent = formatRupiah(fleksibel);
+    if (elTabungan) elTabungan.textContent = formatRupiah(tabungan);
+  }
+
+  function applySimulatedSplit() {
+    const inputVal = document.getElementById('sim-input').value;
+    alert('Simulasi alokasi senilai ' + formatRupiah(inputVal) + ' telah disinkronkan ke rencana semester Anda!');
+  }
+
+  function filterCategory(type) {
+    const cards = document.querySelectorAll('.budget-card');
+    const pills = document.querySelectorAll('.cat-pill');
+
+    pills.forEach(p => {
+      p.classList.remove('bg-primary', 'text-on-primary');
+      p.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+    });
+
+    const activeBtn = document.getElementById('btn-cat-' + type);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      activeBtn.classList.add('bg-primary', 'text-on-primary');
+    }
+
+    cards.forEach(c => {
+      if (type === 'all') {
+        c.style.display = 'flex';
+      } else if (type === 'warning') {
+        c.style.display = c.getAttribute('data-status') === 'warning' ? 'flex' : 'none';
+      } else if (type === 'safe') {
+        c.style.display = c.getAttribute('data-status') === 'safe' ? 'flex' : 'none';
+      }
+    });
+  }
+
+  function filterCritical() {
+    filterCategory('warning');
+    const grid = document.getElementById('budget-cards-grid');
+    if (grid) {
+      grid.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function openBudgetModal() {
+    const modal = document.getElementById('budget-modal');
+    const title = document.getElementById('modal-title');
+    if (title) title.textContent = 'Tambah Pos Anggaran Baru';
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeBudgetModal() {
+    const modal = document.getElementById('budget-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function editBudget(catName, nominal, percentage) {
+    const modal = document.getElementById('budget-modal');
+    const title = document.getElementById('modal-title');
+    const catSelect = document.getElementById('modal-category');
+    const amountInput = document.getElementById('modal-amount');
+
+    if (title) title.textContent = 'Sesuaikan Kuota: ' + catName;
+    if (amountInput) amountInput.value = nominal;
+
+    if (catSelect) {
+      for (let i = 0; i < catSelect.options.length; i++) {
+        if (catSelect.options[i].value.includes(catName.split(' ')[0])) {
+          catSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function handleBudgetSubmit(e) {
+    e.preventDefault();
+    const cat = document.getElementById('modal-category').value;
+    const amount = document.getElementById('modal-amount').value;
+    alert('Alokasi budget untuk "' + cat + '" sebesar ' + formatRupiah(amount) + ' berhasil disimpan!');
+    closeBudgetModal();
+  }
+
+  function openCopyModal() {
+    const confirmed = confirm('Salin konfigurasi pos anggaran dari bulan sebelumnya (Bulan lalu: Rp2.050.000)?');
+    if (confirmed) {
+      alert('Pos anggaran bulan lalu berhasil disalin ke bulan berjalan.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebarLinks = document.querySelectorAll('aside nav a, .lg\\:hidden nav a');
+    sidebarLinks.forEach(link => {
+      if (link.getAttribute('data-path') === 'budget') {
+        link.classList.add('bg-primary-container', 'text-on-primary-container', 'font-headline-sm');
+        link.classList.remove('text-on-surface-variant');
+      } else if (link.getAttribute('data-path') === 'dashboard') {
+        link.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-headline-sm');
+        link.classList.add('text-on-surface-variant');
+      }
+    });
+  });
+</script></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-40 px-space-sm">
+  <nav class="h-full flex items-center justify-around" data-active-classes="text-primary font-headline-sm">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="dashboard" href="../dashboard/index.html">
+      <span class="material-symbols-outlined text-xl">space_dashboard</span>
+      <span class="font-label-sm text-label-sm">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="transaksi" href="../daftarTransaksi/index.html">
+      <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+      <span class="font-label-sm text-label-sm">Transaksi</span>
+    </a>
+    <div class="flex-1 flex justify-center -mt-5">
+      <button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg hover:bg-primary-container transition-transform active:scale-95 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html?action=new'" title="Catat Transaksi">
+        <span class="material-symbols-outlined text-2xl">add</span>
+      </button>
+    </div>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-primary font-headline-sm" data-path="budget" href="../budget/index.html">
+      <span class="material-symbols-outlined text-xl">savings</span>
+      <span class="font-label-sm text-label-sm">Budget</span>
+    </a>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="profil" href="../profil/index.html">
+      <span class="material-symbols-outlined text-xl">person</span>
+      <span class="font-label-sm text-label-sm">Profil</span>
+    </a>
+  </nav>
+</div>
+<script id="maliki-nav-common">
+  function toggleMobileSidebar() {
+    const sidebar = document.getElementById('app-sidebar');
+    const backdrop = document.getElementById('mobile-sidebar-backdrop');
+    if (!sidebar || !backdrop) return;
+    const isHidden = sidebar.classList.contains('hidden');
+    if (isHidden) {
+      sidebar.classList.remove('hidden');
+      sidebar.classList.add('flex', 'z-[60]');
+      backdrop.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('hidden');
+      sidebar.classList.remove('flex', 'z-[60]');
+      backdrop.classList.add('hidden');
+    }
+  }
+
+  function toggleNotificationsMenu(event) {
+    if (event) event.stopPropagation();
+    const dropdown = document.getElementById('notifications-dropdown');
+    if (dropdown) {
+      dropdown.classList.toggle('hidden');
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('notifications-dropdown');
+    if (dropdown && !dropdown.classList.contains('hidden')) {
+      const bell = e.target.closest('[data-path="notifikasi"]');
+      if (!bell && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    }
+  });
+</script>
+
+</body></html>

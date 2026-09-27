@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MalikiWallet - Kelola Uang, Kuliah Lebih Tenang | UIN Maulana Malik Ibrahim Malang</title>
+  <meta name="description" content="MalikiWallet adalah ekosistem fintech syariah kampus UIN Maulana Malik Ibrahim Malang untuk manajemen arus kas, budgeting barakah, dan OCR scan nota mahasiswa." />
+  <link rel="icon" type="image/jpeg" href="./Logo.jpeg" />
+  
+  <!-- Automatic Redirect to Main Dashboard (disable with ?portal=true) -->
+  <script>
+    if (!window.location.search.includes('portal')) {
+      window.location.replace("dashboard/index.html");
+    }
+  </script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            primary: '#003820',
+            'primary-container': '#0f5132',
+            'on-primary': '#ffffff',
+            'on-primary-container': '#84c39b',
+            secondary: '#775a00',
+            'secondary-container': '#fece57',
+            'on-secondary-container': '#735700',
+            surface: '#e8ffee',
+            'surface-container': '#dbf4e2',
+            'surface-container-low': '#e1fae8',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-high': '#d5eedd',
+            'on-surface': '#0a2015',
+            'on-surface-variant': '#404942',
+            outline: '#707971',
+            'outline-variant': '#c0c9c0',
+            'primary-fixed': '#b0f1c7',
+            'secondary-fixed': '#ffdf98'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+
+  <!-- TOP NAVBAR -->
+  <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-container-high shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="dashboard/index.html" class="flex items-center gap-3 group">
+        <img src="./Logo.jpeg" alt="MalikiWallet Logo" class="h-11 w-11 object-contain rounded-xl shadow-sm group-hover:scale-105 transition-transform" />
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-primary block leading-tight">MalikiWallet</span>
+          <span class="text-xs text-on-surface-variant font-medium">UIN Maulana Malik Ibrahim Malang</span>
+        </div>
+      </a>
+      
+      <div class="flex items-center gap-3">
+        <a href="#modul" class="hidden sm:inline-flex px-4 py-2 rounded-xl text-xs font-semibold text-primary hover:bg-surface-container transition-colors">
+          Jelajahi Modul
+        </a>
+        <a href="dashboard/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-bold text-xs shadow-md hover:bg-primary-container active:scale-95 transition-all">
+          <span>Buka Dashboard</span>
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+    
+    <!-- Hero Banner Card -->
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary-container to-[#002816] text-on-primary p-8 sm:p-12 shadow-2xl mb-12">
+      <div class="absolute -right-12 -top-12 w-96 h-96 rounded-full bg-secondary-container/15 blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-primary-fixed text-xs font-semibold mb-6">
+          <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+          Ekosistem Fintech Kampus Terpadu • Semester Ganjil 2026/2027
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-4 text-white">
+          Kelola Uang Saku Kuliah,<br/><span class="text-secondary-fixed">Lebih Tenang &amp; Barakah.</span>
+        </h1>
+        <p class="text-sm sm:text-base text-primary-fixed-dim leading-relaxed mb-8 max-w-2xl">
+          Selamat datang di portal resmi <strong>MalikiWallet</strong>. Dirancang khusus bagi mahasiswa UIN Maulana Malik Ibrahim Malang untuk mengontrol cashflow, alokasi pos anggaran, scan struk otomatis berbasis Smart OCR, hingga tabungan persiapan UKT.
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="dashboard/index.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-secondary-container text-on-secondary-container font-extrabold text-sm shadow-lg hover:brightness-105 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-xl">space_dashboard</span>
+            <span>Masuk ke Dashboard Utama</span>
+          </a>
+          <a href="daftarTransaksi/index.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/15 hover:bg-white/20 text-white font-semibold text-sm backdrop-blur-md transition-all">
+            <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+            <span>Buku Transaksi Kampus</span>
+          </a>
+          <a href="scanNota/index.html" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-surface-container-lowest text-primary font-semibold text-sm shadow-md hover:bg-surface-container transition-all">
+            <span class="material-symbols-outlined text-xl">qr_code_scanner</span>
+            <span>Coba Smart OCR</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALL MODULES DIRECTORY GRID -->
+    <section id="modul" class="mb-14">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
+        <div>
+          <span class="text-xs font-bold text-secondary uppercase tracking-wider">Akses Terhubung Antar Folder</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary mt-1">Seluruh Modul MalikiWallet</h2>
+        </div>
+        <p class="text-xs text-on-surface-variant max-w-md">Semua folder telah tersambung secara seamless dari awal hingga akhir dengan navigasi responsif dan logo resmi.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Module 1: Dashboard -->
+        <a href="dashboard/index.html" class="group bg-surface-container-lowest p-6 rounded-2xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">space_dashboard</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">1. Dashboard Utama</h3>
+              <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">dashboard/</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Ikhtisar saldo Bank BSI (Rp2.450.000), total pemasukan, burn rate pengeluaran, grafik tren harian, serta ringkasan pos anggaran mahasiswa.
+            </p>
+          </div>
+          <div class="flex items-center text-xs font-bold text-primary gap-1 mt-6 pt-4 border-t border-surface-container">
+            <span>Buka Dashboard</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- Module 2: Daftar Transaksi -->
+        <a href="daftarTransaksi/index.html" class="group bg-surface-container-lowest p-6 rounded-2xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">2. Daftar Transaksi</h3>
+              <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">daftarTransaksi/</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Pencatatan arus kas terperinci, filter multi-kategori (makanan, kuliah, kos, bensin), modal tambah transaksi instan, dan ekspor laporan keuangan.
+            </p>
+          </div>
+          <div class="flex items-center text-xs font-bold text-primary gap-1 mt-6 pt-4 border-t border-surface-container">
+            <span>Buka Daftar Transaksi</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- Module 3: Budget -->
+        <a href="budget/index.html" class="group bg-surface-container-lowest p-6 rounded-2xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-secondary-container/40 text-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">savings</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">3. Pengaturan Budget</h3>
+              <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">budget/</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Pagu anggaran bulanan (Rp2.050.000), kontrol realisasi pengeluaran, progress bar per kategori, dan peringatan anti-boncos syariah.
+            </p>
+          </div>
+          <div class="flex items-center text-xs font-bold text-primary gap-1 mt-6 pt-4 border-t border-surface-container">
+            <span>Buka Budgeting</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- Module 4: Analisis Keuangan -->
+        <a href="analisis/index.html" class="group bg-surface-container-lowest p-6 rounded-2xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">monitoring</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">4. Analisis Arus Kas</h3>
+              <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">analisis/</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Visualisasi metrik komprehensif, evaluasi penghematan bulanan, rasio burn rate, serta rekomendasi finansial islami yang barakah.
+            </p>
+          </div>
+          <div class="flex items-center text-xs font-bold text-primary gap-1 mt-6 pt-4 border-t border-surface-container">
+            <span>Buka Analisis</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- Module 5: Smart Scan Nota -->
+        <a href="scanNota/index.html" class="group bg-surface-container-lowest p-6 rounded-2xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">qr_code_scanner</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">5. Smart Scan Nota</h3>
+              <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">scanNota/</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Ekstraksi nota belanja warteg, kuitansi fotocopy modul, dan struk SPBU sekitar Dinoyo-Gajayana secara otomatis dengan AI OCR aman.
+            </p>
+          </div>
+          <div class="flex items-center text-xs font-bold text-primary gap-1 mt-6 pt-4 border-t border-surface-container">
+            <span>Coba Scan Nota</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- Module 6: Profil Mahasiswa -->
+        <a href="profil/index.html" class="group bg-surface-container-lowest p-6 rounded-2xl border border-surface-container-high shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">person</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">6. Profil Mahasiswa</h3>
+              <span class="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-md">profil/</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+              Identitas akademik Muhammad Wildan (NIM 210605110000, Teknik Informatika), sinkronisasi SIAKAD, target tabungan UKT, dan proteksi PIN.
+            </p>
+          </div>
+          <div class="flex items-center text-xs font-bold text-primary gap-1 mt-6 pt-4 border-t border-surface-container">
+            <span>Buka Profil</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- DOCUMENTATION & DATA ASSETS -->
+    <section class="bg-surface-container rounded-3xl p-6 sm:p-8 border border-surface-container-high mb-12">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs font-bold text-primary uppercase tracking-wider">Dokumentasi Proyek Kelompok 2</span>
+          <h3 class="text-xl font-bold text-on-surface mt-0.5">Berkas Spesifikasi &amp; Database Mock</h3>
+        </div>
+        <a href="dataDummy/malikiwallet_mock_database.json" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-primary text-xs font-bold shadow-xs transition-colors self-start md:self-auto">
+          <span class="material-symbols-outlined text-base">data_object</span>
+          <span>Buka malikiwallet_mock_database.json</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="docs/01-project-charter-kelompok 2.docx" class="p-4 rounded-xl bg-surface-container-lowest hover:shadow-md transition-all flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary text-2xl mt-0.5">description</span>
+          <div>
+            <span class="text-xs font-bold text-on-surface block">01. Project Charter</span>
+            <span class="text-[11px] text-on-surface-variant">Word Document (.docx)</span>
+          </div>
+        </a>
+        <a href="docs/02-business-process-kelompok 2.docx" class="p-4 rounded-xl bg-surface-container-lowest hover:shadow-md transition-all flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary text-2xl mt-0.5">account_tree</span>
+          <div>
+            <span class="text-xs font-bold text-on-surface block">02. Business Process</span>
+            <span class="text-[11px] text-on-surface-variant">BPMN &amp; Alur Sistem (.docx)</span>
+          </div>
+        </a>
+        <a href="docs/03-prd-kelompok 2.docx" class="p-4 rounded-xl bg-surface-container-lowest hover:shadow-md transition-all flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary text-2xl mt-0.5">assignment</span>
+          <div>
+            <span class="text-xs font-bold text-on-surface block">03. PRD Lengkap</span>
+            <span class="text-[11px] text-on-surface-variant">Product Requirements (.docx)</span>
+          </div>
+        </a>
+        <a href="docs/04-api-contract-kelompok 2.docx" class="p-4 rounded-xl bg-surface-container-lowest hover:shadow-md transition-all flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary text-2xl mt-0.5">api</span>
+          <div>
+            <span class="text-xs font-bold text-on-surface block">04. API Contract</span>
+            <span class="text-[11px] text-on-surface-variant">REST API Endpoint Specs (.docx)</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-surface-container-lowest border-t border-surface-container py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="./Logo.jpeg" alt="MalikiWallet" class="h-8 w-8 object-contain rounded-md" />
+        <div>
+          <span class="text-sm font-bold text-primary block leading-none">MalikiWallet</span>
+          <span class="text-[11px] text-on-surface-variant">UIN Maulana Malik Ibrahim Malang • Kelompok 2 RPL</span>
+        </div>
+      </div>
+      <p class="text-xs text-on-surface-variant text-center sm:text-right">
+        Hak Cipta &copy; 2026 MalikiWallet. Didesain dengan estetika modern &amp; prinsip ekonomi syariah barakah.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

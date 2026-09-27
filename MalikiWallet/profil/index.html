@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<title>Profil Mahasiswa - MalikiWallet | UIN Maliki Malang</title>
+<link rel="icon" type="image/jpeg" href="../Logo.jpeg"/>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
+  <div class="flex flex-col gap-space-lg">
+    <!-- Header with Logo & Mobile Close Button -->
+    <div class="flex items-center justify-between">
+      <a href="../dashboard/index.html" class="flex items-center gap-space-sm px-space-xs group cursor-pointer" title="Kembali ke Dashboard">
+        <img alt="MalikiWallet Logo" class="h-9 w-9 object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform" src="../Logo.jpeg" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">MalikiWallet</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant">UIN Maulana Malik Ibrahim</span>
+        </div>
+      </a>
+      <button aria-label="Tutup Menu" onclick="toggleMobileSidebar()" class="lg:hidden p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+
+    <!-- Quick Action: Tambah Transaksi -->
+    <button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-3 px-space-md rounded-xl shadow-md hover:bg-primary-container hover:text-on-primary transition-all duration-200 font-label-lg text-label-lg active:scale-95 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html?action=new'">
+      <span class="material-symbols-outlined text-lg">add_circle</span>
+      <span>+ Tambah Transaksi</span>
+    </button>
+
+    <!-- Main Navigation Links -->
+    <nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm">
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="dashboard" href="../dashboard/index.html">
+          <span class="material-symbols-outlined text-xl">space_dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="transaksi" href="../daftarTransaksi/index.html">
+          <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+          <span>Transaksi</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="budget" href="../budget/index.html">
+          <span class="material-symbols-outlined text-xl">savings</span>
+          <span>Budget</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="analisis" href="../analisis/index.html">
+          <span class="material-symbols-outlined text-xl">monitoring</span>
+          <span>Analisis</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-md text-body-md" data-path="scan-nota" href="../scanNota/index.html">
+          <span class="material-symbols-outlined text-xl">qr_code_scanner</span>
+          <span>Scan Nota</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-3 rounded-xl transition-colors bg-primary-container text-on-primary-container font-headline-sm shadow-sm" data-path="profil" href="../profil/index.html">
+          <span class="material-symbols-outlined text-xl">person</span>
+          <span>Profil</span>
+        </a>
+    </nav>
+  </div>
+
+  <!-- User Profile Card in Sidebar Footer -->
+  <a href="../profil/index.html" class="bg-surface-container hover:bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-sm transition-colors group cursor-pointer block" title="Kelola Profil & SIAKAD">
+    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+      <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+    </div>
+    <div class="flex flex-col min-w-0 flex-1">
+      <span class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Muhammad Wildan</span>
+      <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Teknik Informatika</span>
+    </div>
+    <span class="material-symbols-outlined text-lg text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+  </a>
+</aside>
+<div id="mobile-sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden transition-opacity lg:hidden"></div><div class="lg:pl-72"><header class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-md lg:px-space-xl flex items-center justify-between">
+  <div class="flex items-center gap-space-sm">
+    <button aria-label="Menu Navigation" onclick="toggleMobileSidebar()" class="lg:hidden p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg cursor-pointer">
+      <span class="material-symbols-outlined text-2xl">menu</span>
+    </button>
+    <a href="../dashboard/index.html" class="flex items-center gap-space-xs lg:hidden group cursor-pointer">
+      <img alt="MalikiWallet Logo" class="h-8 w-8 object-contain rounded-md shadow-xs group-hover:scale-105 transition-transform" src="../Logo.jpeg" />
+      <span class="font-headline-sm text-headline-sm text-primary">MalikiWallet</span>
+    </a>
+  </div>
+  <div class="flex items-center gap-space-md">
+    <!-- Notification Bell with Interactive Dropdown -->
+    <div class="relative">
+      <button onclick="toggleNotificationsMenu(event)" class="p-space-xs rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors relative cursor-pointer" data-path="notifikasi" title="Notifikasi Keuangan Kampus">
+        <span class="material-symbols-outlined text-2xl">notifications</span>
+        <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+      </button>
+      <div id="notifications-dropdown" class="hidden absolute right-0 mt-2 w-80 sm:w-96 bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-4 z-50 text-left">
+        <div class="flex items-center justify-between pb-3 border-b border-surface-container">
+          <span class="font-headline-sm text-sm font-bold text-primary">Notifikasi Mahasiswa</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-semibold">3 Baru</span>
+        </div>
+        <div class="flex flex-col gap-2.5 mt-3 max-h-72 overflow-y-auto">
+          <div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html'">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">account_balance</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Transfer Masuk Berhasil</span>
+              <span class="text-on-surface-variant block mt-0.5">Kiriman Uang Saku Bulanan Rp1.700.000 telah masuk ke Rekening BSI.</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">Hari ini, 08:00</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-secondary-fixed/20 hover:bg-secondary-fixed/30 transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../budget/index.html'">
+            <span class="material-symbols-outlined text-secondary text-xl mt-0.5">warning</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Peringatan Pos Anggaran</span>
+              <span class="text-on-surface-variant block mt-0.5">Budget Makanan & Minuman sudah terpakai 85%. Tetap hemat!</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">Kemarin, 19:30</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-2.5 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html'">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5">school</span>
+            <div class="text-xs">
+              <span class="font-bold text-on-surface block">Beasiswa Tahfidz Cair</span>
+              <span class="text-on-surface-variant block mt-0.5">Dana beasiswa prestasi semester 4 telah diverifikasi rektorat.</span>
+              <span class="text-[10px] text-on-surface-variant/80 mt-1 block">24 Sept 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Profile Header Pill -->
+    <a href="../profil/index.html" class="hidden sm:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container transition-colors py-1.5 px-space-md rounded-full group cursor-pointer" title="Buka Profil Mahasiswa">
+      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Muhammad Wildan</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM 210605110000</span>
+      </div>
+    </a>
+    <a href="../profil/index.html" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer" title="Buka Profil Mahasiswa">
+      <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+    </a>
+  </div>
+</header><main class="w-full pt-16 pb-24 lg:pb-12 bg-surface min-h-screen px-space-md lg:px-space-xl"><div class="flex flex-col w-full">
+<!-- Top Action Bar & Header Breadcrumb -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high w-fit mb-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">Manajemen Akun Mahasiswa • Privasi &amp; Sinkronisasi SIAKAD</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Profil &amp; Pengaturan Akun</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-0.5">
+        Kelola data identitas akademik, preferensi finansial syariah, target tabungan UKT, serta keamanan dompet digital MalikiWallet Anda.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto shrink-0">
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-all shadow-sm cursor-pointer" type="button" onclick="window.location.href='../dashboard/index.html'">Batal</button>
+<button class="flex items-center gap-2 px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-md hover:shadow-lg active:scale-95" id="saveBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Simpan Perubahan</span>
+</button>
+</div>
+</div>
+<!-- Hero Banner: Identitas Mahasiswa & Quick Stats -->
+<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F5132] via-[#13653F] to-[#082b1b] text-on-primary shadow-xl p-space-lg lg:p-space-xl mb-space-xl">
+<!-- Decorative Islamic Geometry Subtle Watermark -->
+<div class="absolute -right-16 -top-16 w-80 h-80 opacity-10 pointer-events-none text-surface-container-lowest">
+<svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 200 200">
+<polygon fill="currentColor" fill-opacity="0.08" points="100,10 120,60 170,40 150,90 200,100 150,110 170,160 120,140 100,190 80,140 30,160 50,110 0,100 50,90 30,40 80,60"></polygon>
+<circle cx="100" cy="100" r="70" stroke="currentColor"></circle>
+<circle cx="100" cy="100" r="45" stroke="currentColor"></circle>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md">
+<!-- Avatar Section -->
+<div class="relative group shrink-0">
+<div class="w-24 h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden bg-primary-container shadow-lg ring-4 ring-on-primary/10"><div class="w-full h-full flex flex-col items-center justify-center bg-surface-container text-primary font-bold"><span class="text-2xl lg:text-3xl font-headline-lg tracking-tight">MW</span><span class="text-[10px] font-label-sm text-on-surface-variant font-semibold uppercase mt-0.5">Wildan</span></div></div>
+<button aria-label="Ubah Foto Profil" class="absolute -bottom-2 -right-2 w-9 h-9 rounded-xl bg-secondary-container text-on-secondary-container shadow-md flex items-center justify-center hover:scale-105 transition-transform" title="Ubah Foto Profil" type="button">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+<!-- Student Metadata -->
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+              Terverifikasi SIAKAD
+            </span>
+<span class="px-2.5 py-0.5 rounded-full bg-on-primary/15 text-primary-fixed font-label-sm text-label-sm">
+              Mahasiswa Aktif • Reguler Ulul Albab
+            </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold tracking-tight text-surface-container-lowest">Muhammad Wildan</h2>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-on-primary-container font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1 text-on-primary">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">badge</span>
+              NIM: 210605110000
+            </span>
+<span>•</span>
+<span class="text-on-primary">S1 Teknik Informatika</span>
+<span>•</span>
+<span class="text-on-primary">Semester 4 (2026/2027)</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-primary-container font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span>Fakultas Sains dan Teknologi • UIN Maulana Malik Ibrahim Malang</span>
+</div>
+</div>
+</div>
+<!-- Quick KPI Badges -->
+<div class="grid grid-cols-3 gap-space-sm bg-black/20 backdrop-blur-md rounded-2xl p-space-md min-w-[280px] lg:max-w-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-surface-variant/80">Saldo Maliki</span>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest mt-0.5">Rp2.450.000</span>
+<span class="font-label-sm text-[10px] text-tertiary-fixed mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> Dompet Utama
+          </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-surface-variant/80">Target UKT</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary-container mt-0.5">89%</span>
+<span class="font-label-sm text-[10px] text-surface-container-lowest mt-0.5">Rp2.850.000 / 3.2M</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-surface-variant/80">Beasiswa</span>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest mt-0.5">Tahfidz</span>
+<span class="font-label-sm text-[10px] text-primary-fixed mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> Aktif Semester 4
+          </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-Navigation Tabs (Horizontal Scroller) -->
+<div class="sticky top-16 z-30 -mx-space-md lg:-mx-space-xl px-space-md lg:px-space-xl bg-surface/90 backdrop-blur-md py-2.5 mb-space-lg">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+<button class="tab-btn px-4 py-2 rounded-full font-label-md text-label-md shrink-0 bg-primary text-on-primary shadow-sm flex items-center gap-1.5" data-tab="data-pribadi" type="button">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Data Akademik &amp; Pribadi</span>
+</button>
+<button class="tab-btn px-4 py-2 rounded-full font-label-md text-label-md shrink-0 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center gap-1.5" data-tab="finansial-syariah" type="button">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span>Preferensi Finansial Syariah</span>
+</button>
+<button class="tab-btn px-4 py-2 rounded-full font-label-md text-label-md shrink-0 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center gap-1.5" data-tab="keamanan-pin" type="button">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+<span>Keamanan &amp; PIN</span>
+</button>
+<button class="tab-btn px-4 py-2 rounded-full font-label-md text-label-md shrink-0 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center gap-1.5" data-tab="notifikasi" type="button">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+<span>Notifikasi &amp; Kas</span>
+</button>
+<button class="tab-btn px-4 py-2 rounded-full font-label-md text-label-md shrink-0 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center gap-1.5" data-tab="rekening-bsi" type="button">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+<span>Koneksi BSI &amp; Bank</span>
+</button>
+</div>
+</div>
+<!-- Main Grid: 2 Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- LEFT COLUMN: Data Pribadi, Kontak, & SIAKAD Sync (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Card: Form Data Pribadi & Kontak -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">contact_page</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Identitas Mahasiswa</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Informasi ini tersambung resmi ke sistem akademik kampus</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">Akun Resmi</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Nama Lengkap -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="full-name">Nama Lengkap</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="full-name" type="text" value="Muhammad Wildan"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-primary text-[20px]">badge</span>
+</div>
+</div>
+<!-- NIM (Locked SIAKAD) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface" for="nim-field">Nomor Induk Mahasiswa (NIM)</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">lock</span> Terkunci SIAKAD
+              </span>
+</div>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-high/60 text-on-surface-variant font-body-md text-body-md cursor-not-allowed" id="nim-field" readonly="" type="text" value="210605110000"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]">lock</span>
+</div>
+</div>
+<!-- Email Kampus -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="email-kampus">Email Institusi Kampus</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-high/60 text-on-surface-variant font-body-md text-body-md cursor-not-allowed" id="email-kampus" readonly="" type="email" value="wildan@student.uin-malang.ac.id"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]">mail</span>
+</div>
+</div>
+<!-- WhatsApp / HP -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="phone-no">Nomor WhatsApp / Seluler</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="phone-no" type="tel" value="+62 812-3456-7890"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-primary text-[20px]">call</span>
+</div>
+</div>
+<!-- Status Tempat Tinggal -->
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="font-label-md text-label-md text-on-surface" for="residence-type">Status Domisili / Tempat Tinggal di Malang</label>
+<div class="relative">
+<select class="w-full h-12 px-3.5 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm appearance-none focus:bg-surface-container-low" id="residence-type">
+<option selected="" value="kos">Kos Mandiri (Sekitar Kampus 1 UIN Malang)</option>
+<option value="mahad">Ma'had Al-Jami'ah (Asrama Kampus)</option>
+<option value="ortu">Rumah Orang Tua / Domisili Tetap Malang Raya</option>
+<option value="pesantren">Pondok Pesantren Mahasiswa Mitra</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Alamat Kos -->
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="font-label-md text-label-md text-on-surface" for="address-malang">Alamat Kos / Tempat Tinggal Sekarang</label>
+<textarea class="w-full p-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm resize-none focus:bg-surface-container-low" id="address-malang" rows="2">Jl. Sunan Kalijaga No. 18, RT 03 / RW 04, Dinoyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144</textarea>
+</div>
+</div>
+</div>
+<!-- Card: Sinkronisasi SIAKAD UIN Maulana Malik Ibrahim -->
+<div class="bg-gradient-to-r from-surface-container-low to-surface-container rounded-3xl p-space-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[26px]">sync_alt</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Status Sinkronisasi SIAKAD</h4>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Data tagihan UKT, mata kuliah, dan presensi kas otomatis selaras setiap hari.
+            </p>
+<span class="font-label-sm text-label-sm text-primary mt-1.5 inline-block">
+              Terakhir sinkronisasi: <strong>Hari ini, 08:30 WIB</strong> (Status Sukses)
+            </span>
+</div>
+</div>
+<button class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all shadow-sm shrink-0" id="syncSiakadBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Sinkronkan Ulang</span>
+</button>
+</div>
+<!-- Card: Foto Kartu Tanda Mahasiswa (KTM Digital) -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] text-secondary">credit_card</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">KTM Digital &amp; Akses Kampus</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tunjukkan kode QR saat masuk perpustakaan atau validasi presensi</p>
+</div>
+</div>
+<button class="text-primary hover:text-primary-container font-label-md text-label-md flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span> Unduh PDF
+          </button>
+</div>
+<!-- Simulated Digital KTM Card -->
+<div class="rounded-2xl p-space-md bg-gradient-to-r from-primary to-primary-container text-on-primary flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-20 bg-surface-container-lowest/10 rounded-lg overflow-hidden shrink-0 ring-2 ring-on-primary/20"><div class="w-full h-full flex flex-col items-center justify-center bg-surface-container-low text-primary p-1 text-center"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-[9px] uppercase font-bold text-primary">Pasfoto</span><span class="font-mono text-[8px] text-on-surface-variant leading-none">3x4</span></div></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-surface-variant tracking-wider uppercase">UIN Maulana Malik Ibrahim Malang</span>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest">Muhammad Wildan</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">NIM. 210605110000</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed mt-1">Teknik Informatika • Semester 4</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-xl flex flex-col items-center shrink-0 shadow-inner">
+<!-- Simulated QR Code -->
+<svg class="w-16 h-16 text-primary" fill="currentColor" viewbox="0 0 100 100">
+<rect height="30" width="30" x="0" y="0"></rect>
+<rect fill="white" height="20" width="20" x="5" y="5"></rect>
+<rect height="10" width="10" x="10" y="10"></rect>
+<rect height="30" width="30" x="70" y="0"></rect>
+<rect fill="white" height="20" width="20" x="75" y="5"></rect>
+<rect height="10" width="10" x="80" y="10"></rect>
+<rect height="30" width="30" x="0" y="70"></rect>
+<rect fill="white" height="20" width="20" x="5" y="75"></rect>
+<rect height="10" width="10" x="10" y="80"></rect>
+<rect height="20" width="10" x="40" y="10"></rect>
+<rect height="10" width="20" x="60" y="40"></rect>
+<rect height="20" width="20" x="40" y="50"></rect>
+<rect height="20" width="20" x="70" y="70"></rect>
+<rect height="10" width="10" x="40" y="80"></rect>
+</svg>
+<span class="font-label-sm text-[9px] text-on-surface-variant font-mono mt-1">KTM-210605-VALID</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Preferensi Syariah, Target UKT, & Keamanan (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Card: Preferensi Finansial Syariah & Alokasi -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm">
+<div class="flex items-center gap-2.5 mb-space-md">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 text-on-tertiary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">volunteer_activism</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Preferensi Finansial Syariah</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Prinsip berkah, tertib, dan bebas riba</p>
+</div>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Toggle 1: Infaq Jumat -->
+<div class="flex items-start justify-between gap-space-sm p-3.5 rounded-2xl bg-surface-container-low/50">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Otomatisasi Infaq Jumat</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sisihkan 2.5% otomatis dari kiriman dana masuk ke Kas Masjid Kampus</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 2: Pengeluaran Harian -->
+<div class="flex items-start justify-between gap-space-sm p-3.5 rounded-2xl bg-surface-container-low/50">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Peringatan Kuota Belanja Harian</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Notifikasi push saat belanja melebihi batas <strong>Rp68.000 / hari</strong></span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 3: Mode Hemat Akhir Bulan -->
+<div class="flex items-start justify-between gap-space-sm p-3.5 rounded-2xl bg-surface-container-low/50">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Mode Berkah Akhir Bulan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kunci transaksi pos hiburan &amp; cafe bila saldo dompet di bawah Rp300.000</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Radio Budget Formula -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<span class="font-label-md text-label-md text-on-surface">Formula Budgeting Dompet:</span>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-high/40 cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="accent-primary w-4 h-4" name="budget-formula" type="radio" value="kampus"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Formula Kampus Hijau (50% Pokok, 30% Belajar/Kuliah, 20% Tabungan/Infaq)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rekomendasi Bagian Keuangan Kampus</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low/30 cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="accent-primary w-4 h-4" name="budget-formula" type="radio" value="fleksibel"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Formula Fleksibel Mahasiswa Kos (60% Makan/Kos, 25% Kuliah, 15% Sisa Darurat)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cocok untuk perantau mandiri</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Target Tabungan UKT & Kalender Akademik -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed/50 text-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] text-secondary">savings</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Celengan Target UKT</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">UKT Golongan 3 • Semester Ganjil 2026</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Grade 3</span>
+</div>
+<!-- Progress Gauge -->
+<div class="p-space-md rounded-2xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex justify-between items-baseline">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Terkumpul saat ini:</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Rp2.850.000 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">/ Rp3.200.000</span></span>
+</div>
+<!-- Linear Meter -->
+<div class="w-full bg-surface-container-highest rounded-full h-3 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary-container h-3 rounded-full transition-all duration-500" style="width: 89%;"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-body-sm text-body-sm">
+<span class="text-error flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">event_busy</span> Sisa: Rp350.000
+            </span>
+<span class="font-label-sm text-label-sm text-primary">Batas Bayar: 10 Nov 2026</span>
+</div>
+</div>
+<div class="flex items-center justify-between px-2 pt-1 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">autorenew</span>
+<span class="font-label-md text-label-md">Auto-Debit Tiap Kiriman Masuk</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-primary">Rp50.000 / transfer</span>
+</div>
+</div>
+<!-- Card: Keamanan & Rekening BSI Terintegrasi -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">security</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Keamanan &amp; Rekening Bank</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Integrasi resmi Bank Syariah Indonesia</p>
+</div>
+</div>
+<!-- Bank Connection Tile -->
+<div class="p-3.5 rounded-2xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary font-bold shadow-sm font-headline-sm text-headline-sm">
+              BSI
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface">Tabungan Mahasiswa Prima</span>
+<span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+</div>
+<span class="font-mono font-body-sm text-body-sm text-on-surface-variant">7192 •••• 45 (a.n Muhammad Wildan)</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">Tersambung</span>
+</div>
+<!-- Quick Security Action Links -->
+<div class="flex flex-col gap-1.5">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">pin</span>
+<span class="font-label-md text-label-md text-on-surface">Ubah PIN Transaksi 6-Digit</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">fingerprint</span>
+<span class="font-label-md text-label-md text-on-surface">Autentikasi Biometrik (Face / Touch ID)</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Aktif</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">devices</span>
+<span class="font-label-md text-label-md text-on-surface">Riwayat Perangkat Login (2 Sesi Aktif)</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Footer Controls & Danger Actions -->
+<div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mb-space-xl">
+<div class="flex flex-wrap items-center gap-space-sm w-full md:w-auto">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Ekspor Seluruh Data Keuangan (.CSV/.JSON)</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-error-container/60 hover:bg-error-container text-error font-label-md text-label-md transition-colors" id="logoutBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Keluar dari Akun MalikiWallet</span>
+</button>
+</div>
+<div class="flex flex-col md:items-end text-left md:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">MalikiWallet Web v2.4.0 • UIN Maulana Malik Ibrahim Malang</span>
+<span class="font-label-sm text-[11px] text-tertiary-container mt-0.5">Dikelola dengan Prinsip Amanah, Akuntabel &amp; Barakah</span>
+</div>
+</div>
+<!-- Interactive Toast Notification Element (Hidden by default) -->
+<div class="fixed bottom-20 right-6 lg:right-10 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-space-md py-3 rounded-2xl bg-primary text-on-primary shadow-2xl" id="toastNotification">
+<span class="material-symbols-outlined text-[22px] text-secondary-fixed">check_circle</span>
+<span class="font-label-md text-label-md" id="toastMessage">Perubahan profil berhasil disimpan ke SIAKAD UIN Malang.</span>
+</div>
+<script>
+    // Sub-navigation active state switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          b.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+      });
+    });
+
+    // Toast Notification Helper
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    function showToast(message) {
+      if (!toast) return;
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
+    // Save Button Simulation
+    const saveBtn = document.getElementById('saveBtn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        saveBtn.classList.add('opacity-75');
+        saveBtn.querySelector('span:last-child').textContent = 'Menyimpan...';
+        setTimeout(() => {
+          saveBtn.classList.remove('opacity-75');
+          saveBtn.querySelector('span:last-child').textContent = 'Simpan Perubahan';
+          showToast('Data identitas dan preferensi syariah berhasil diperbarui!');
+        }, 800);
+      });
+    }
+
+    // Re-sync SIAKAD Simulation
+    const syncSiakadBtn = document.getElementById('syncSiakadBtn');
+    if (syncSiakadBtn) {
+      syncSiakadBtn.addEventListener('click', () => {
+        const icon = syncSiakadBtn.querySelector('.material-symbols-outlined');
+        if (icon) icon.classList.add('animate-spin');
+        syncSiakadBtn.setAttribute('disabled', 'true');
+
+        setTimeout(() => {
+          if (icon) icon.classList.remove('animate-spin');
+          syncSiakadBtn.removeAttribute('disabled');
+          showToast('Sinkronisasi ulang data SIAKAD UIN Malang sukses diperbarui!');
+        }, 1200);
+      });
+    }
+
+    // Logout Confirmation
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        if (confirm('Apakah Anda yakin ingin keluar dari sesi MalikiWallet di perangkat ini?')) {
+          showToast('Sesi akun diakhiri. Mengalihkan ke login portal...');
+        }
+      });
+    }
+  </script>
+</div></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-40 px-space-sm">
+  <nav class="h-full flex items-center justify-around" data-active-classes="text-primary font-headline-sm">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="dashboard" href="../dashboard/index.html">
+      <span class="material-symbols-outlined text-xl">space_dashboard</span>
+      <span class="font-label-sm text-label-sm">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="transaksi" href="../daftarTransaksi/index.html">
+      <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+      <span class="font-label-sm text-label-sm">Transaksi</span>
+    </a>
+    <div class="flex-1 flex justify-center -mt-5">
+      <button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg hover:bg-primary-container transition-transform active:scale-95 cursor-pointer" onclick="window.location.href='../daftarTransaksi/index.html?action=new'" title="Catat Transaksi">
+        <span class="material-symbols-outlined text-2xl">add</span>
+      </button>
+    </div>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="budget" href="../budget/index.html">
+      <span class="material-symbols-outlined text-xl">savings</span>
+      <span class="font-label-sm text-label-sm">Budget</span>
+    </a>
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-primary font-headline-sm" data-path="profil" href="../profil/index.html">
+      <span class="material-symbols-outlined text-xl">person</span>
+      <span class="font-label-sm text-label-sm">Profil</span>
+    </a>
+  </nav>
+</div>
+<script id="maliki-nav-common">
+  function toggleMobileSidebar() {
+    const sidebar = document.getElementById('app-sidebar');
+    const backdrop = document.getElementById('mobile-sidebar-backdrop');
+    if (!sidebar || !backdrop) return;
+    const isHidden = sidebar.classList.contains('hidden');
+    if (isHidden) {
+      sidebar.classList.remove('hidden');
+      sidebar.classList.add('flex', 'z-[60]');
+      backdrop.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('hidden');
+      sidebar.classList.remove('flex', 'z-[60]');
+      backdrop.classList.add('hidden');
+    }
+  }
+
+  function toggleNotificationsMenu(event) {
+    if (event) event.stopPropagation();
+    const dropdown = document.getElementById('notifications-dropdown');
+    if (dropdown) {
+      dropdown.classList.toggle('hidden');
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('notifications-dropdown');
+    if (dropdown && !dropdown.classList.contains('hidden')) {
+      const bell = e.target.closest('[data-path="notifikasi"]');
+      if (!bell && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    }
+  });
+</script>
+
+</body></html>
