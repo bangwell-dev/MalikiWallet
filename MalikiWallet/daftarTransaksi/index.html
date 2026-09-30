@@ -1010,9 +1010,7 @@
           </p>
 </div>
 </div>
-<a class="px-4 py-2 rounded-xl bg-surface-container-high hover:bg-surface-dim text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" href="#">
-        Atur Pos Anggaran
-      </a>
+<a class="px-4 py-2 rounded-xl bg-surface-container-high hover:bg-surface-dim text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" href="../budget/index.html">Atur Pos Anggaran</a>
 </div>
 
 <div class="lg:col-span-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-2xl p-space-md lg:p-space-lg shadow-md flex flex-col justify-between">
@@ -1028,7 +1026,7 @@
 <p class="font-body-sm text-body-sm text-surface-container-low/90 my-3">
         Cukup foto nota belanja warung kos atau Indomaret di sekitar kampus Dinoyo untuk input instan.
       </p>
-<button class="w-full py-2 bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed font-label-md text-label-md rounded-xl font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all" onclick="alert('Fitur OCR Kamera Aktif. Siapkan struk belanja Anda.')">
+<button class="w-full py-2 bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed font-label-md text-label-md rounded-xl font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all" onclick="window.location.href='../scanNota/index.html'">
 <span class="material-symbols-outlined text-lg">qr_code_scanner</span>
 <span class="">Ambil Foto Struk</span>
 </button>
@@ -1093,7 +1091,7 @@
 </button>
 <div class="flex items-center gap-2">
 <button class="px-4 py-2 rounded-xl bg-surface-container-high hover:bg-surface-dim font-label-md text-label-md text-on-surface" onclick="closeDetailModal()">Tutup</button>
-<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container" onclick="alert('Formulir ubah transaksi siap dibuka'); closeDetailModal();">Edit Transaksi</button>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container" onclick="editCurrentTransaction()">Edit Transaksi</button>
 </div>
 </div>
 </div>
@@ -1599,9 +1597,39 @@
       document.getElementById("exportModal").classList.add("hidden");
     }
 
+    function editCurrentTransaction() {
+      if (!selectedActiveTx) return;
+      const tx = selectedActiveTx;
+      closeDetailModal();
+      openNewTransactionModal();
+      const amtInput = document.getElementById("newTxAmount");
+      const titleInput = document.getElementById("newTxTitle");
+      const notesInput = document.getElementById("newTxNotes");
+      const catInput = document.getElementById("newTxCategory");
+      if (amtInput) amtInput.value = tx.amount;
+      if (titleInput) titleInput.value = tx.title;
+      if (notesInput) notesInput.value = tx.notes || "";
+      if (catInput) catInput.value = tx.category;
+      selectNewType(tx.type);
+    }
+
     function downloadReport(format) {
-      alert(`Menyiapkan berkas ${format} Laporan Keuangan MalikiWallet UIN Malang... Dokumen siap diunduh!`);
       closeExportModal();
+      if (format === 'PDF') {
+        window.print();
+        return;
+      }
+      let csvContent = "data:text/csv;charset=utf-8,ID,Tanggal,Kategori,Judul,Metode,Tipe,Nominal\n";
+      initialTransactions.forEach(tx => {
+        csvContent += `"${tx.id}","${tx.date}","${tx.category}","${(tx.title || '').replace(/"/g, '""')}","${tx.method}","${tx.type}","${tx.amount}"\n`;
+      });
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `laporan_keuangan_malikiwallet_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     // Initial render call

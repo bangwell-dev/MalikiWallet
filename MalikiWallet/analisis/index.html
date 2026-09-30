@@ -792,7 +792,7 @@
 <p class="font-body-sm text-[12px] text-on-surface-variant">
               Kurang <strong>Rp350.000</strong> lagi. Dari sisa surplus bulan ini, dana UKT dijamin siap 100% tepat waktu.
             </p>
-<a class="text-primary font-label-sm text-label-sm font-bold underline hover:opacity-80 shrink-0" data-path="budget" href="#">
+<a class="text-primary font-label-sm text-label-sm font-bold underline hover:opacity-80 shrink-0" data-path="budget" href="../budget/index.html">
               Lihat Kantong UKT →
             </a>
 </div>
@@ -814,22 +814,36 @@
 </div>
 </div>
 <div class="flex items-center gap-space-xs shrink-0">
-<button class="px-space-md py-2.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors shadow-sm">
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors shadow-sm cursor-pointer" onclick="window.location.href='../budget/index.html'">
         Atur Ulang Plafon
       </button>
-<a class="px-space-md py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-sm" data-path="transaksi" href="#">
+<a class="px-space-md py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-sm" data-path="transaksi" href="../daftarTransaksi/index.html">
         Buka Buku Kas →
       </a>
 </div>
 </section>
 </div>
 <script>
-  // Simple interactive feedback on filter switch
+  const periodData = {
+    'sep-2026': { expense: '1.850.000', ratio: '57.8%', avg: '61.666', infaq: '450.000' },
+    'aug-2026': { expense: '2.100.000', ratio: '65.6%', avg: '70.000', infaq: '320.000' },
+    'jul-2026': { expense: '1.950.000', ratio: '60.9%', avg: '65.000', infaq: '280.000' },
+    'semester-ganjil': { expense: '5.900.000', ratio: '61.4%', avg: '65.555', infaq: '1.050.000' }
+  };
+
   const filterSelect = document.getElementById('timeRangeFilter');
   if (filterSelect) {
     filterSelect.addEventListener('change', (e) => {
-      // Micro notification toast could be triggered here
-      console.log('Mengubah filter analisis ke:', e.target.value);
+      const d = periodData[e.target.value];
+      if (d) {
+        const kpiValues = document.querySelectorAll('section.grid .font-display-lg');
+        if (kpiValues.length >= 4) {
+          kpiValues[0].textContent = d.expense;
+          kpiValues[1].textContent = d.ratio;
+          kpiValues[2].textContent = d.avg;
+          kpiValues[3].textContent = d.infaq;
+        }
+      }
     });
   }
 </script></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-40 px-space-sm">

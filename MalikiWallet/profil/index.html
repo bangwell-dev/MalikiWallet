@@ -15,7 +15,48 @@
 }
 ::-webkit-scrollbar { display: none; }
 .tabular-nums, [data-amount], .font-mono { font-variant-numeric: tabular-nums; }
-</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
+</style><script src="https://cdn.tailwindcss.com"></script>
+<script>
+  function promptChangePin() {
+    const cur = prompt('Masukkan 6-digit PIN saat ini (Default: 123456):');
+    if (!cur) return;
+    const next = prompt('Masukkan 6-digit PIN baru:');
+    if (next && next.length >= 6) {
+      showToast('PIN Transaksi 6-digit berhasil diperbarui dan disimpan!');
+    } else if (next) {
+      alert('PIN harus terdiri dari minimal 6 digit angka.');
+    }
+  }
+
+  function toggleBiometric() {
+    const bioStatus = document.getElementById('bioStatusBadge');
+    if (bioStatus) {
+      const isCurrentlyActive = bioStatus.textContent.trim() === 'Aktif';
+      bioStatus.textContent = isCurrentlyActive ? 'Nonaktif' : 'Aktif';
+      bioStatus.className = isCurrentlyActive 
+        ? 'font-label-sm text-label-sm text-on-surface-variant font-semibold' 
+        : 'font-label-sm text-label-sm text-primary font-semibold';
+      showToast('Autentikasi biometrik ' + (isCurrentlyActive ? 'dinonaktifkan.' : 'diaktifkan.'));
+    }
+  }
+
+  function showActiveSessions() {
+    alert('Sesi Perangkat Aktif:\n1. Chrome 128 (Windows 11) - Sesi Saat Ini - Malang, ID\n2. Safari Mobile (iOS 17.5) - Login 24 Sept 2026 - UIN Kampus 1');
+  }
+
+  function downloadKtmPdf() {
+    showToast('Menyiapkan berkas KTM Digital Muhammad Wildan...');
+    setTimeout(() => {
+      window.print();
+    }, 400);
+  }
+
+  function exportFinancialData() {
+    window.open('../dataDummy/malikiwallet_mock_database.json', '_blank');
+    showToast('Mengunduh berkas rekap data keuangan mahasiswa (.json)...');
+  }
+</script>
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
   <div class="flex flex-col gap-space-lg">
     
     <div class="flex items-center justify-between">
@@ -543,21 +584,21 @@
 </div>
 
 <div class="flex flex-col gap-1.5">
-<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors" type="button">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors cursor-pointer" type="button" onclick="promptChangePin()">
 <div class="flex items-center gap-2.5">
 <span class="material-symbols-outlined text-on-surface-variant text-[20px]">pin</span>
 <span class="font-label-md text-label-md text-on-surface">Ubah PIN Transaksi 6-Digit</span>
 </div>
 <span class="material-symbols-outlined text-outline text-[18px]">chevron_right</span>
 </button>
-<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors" type="button">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors cursor-pointer" type="button" onclick="promptChangePin()">
 <div class="flex items-center gap-2.5">
 <span class="material-symbols-outlined text-on-surface-variant text-[20px]">fingerprint</span>
 <span class="font-label-md text-label-md text-on-surface">Autentikasi Biometrik (Face / Touch ID)</span>
 </div>
 <span class="font-label-sm text-label-sm text-primary font-semibold">Aktif</span>
 </button>
-<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors" type="button">
+<button class="w-full flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-high/50 text-left transition-colors cursor-pointer" type="button" onclick="promptChangePin()">
 <div class="flex items-center gap-2.5">
 <span class="material-symbols-outlined text-on-surface-variant text-[20px]">devices</span>
 <span class="font-label-md text-label-md text-on-surface">Riwayat Perangkat Login (2 Sesi Aktif)</span>
@@ -571,7 +612,7 @@
 
 <div class="bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mb-space-xl">
 <div class="flex flex-wrap items-center gap-space-sm w-full md:w-auto">
-<button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors" type="button">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors cursor-pointer" type="button" onclick="exportFinancialData()">
 <span class="material-symbols-outlined text-[18px]">file_download</span>
 <span>Ekspor Seluruh Data Keuangan (.CSV/.JSON)</span>
 </button>

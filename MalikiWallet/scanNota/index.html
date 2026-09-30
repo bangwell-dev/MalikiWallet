@@ -243,7 +243,7 @@
 <span class="material-symbols-outlined text-xl">image</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-label-md text-label-md text-on-surface font-bold truncate">IMG_20260925_Kantin_Gajayana.jpg</span>
+<span id="scanFilename" class="font-label-md text-label-md text-on-surface font-bold truncate">IMG_20260925_Kantin_Gajayana.jpg</span>
 <div class="flex items-center gap-1.5">
 <span class="w-2 h-2 rounded-full bg-primary-container"></span>
 <span class="font-label-sm text-label-sm text-primary font-semibold">Berhasil Dipindai (Akurasi 98.4%)</span>
@@ -362,7 +362,8 @@
           Uji Coba Struk / Nota Lainnya
         </label>
 
-<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer flex flex-col items-center justify-center text-center gap-1 group">
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer flex flex-col items-center justify-center text-center gap-1 group" onclick="document.getElementById('receiptFileInput').click()">
+<input type="file" id="receiptFileInput" class="hidden" accept="image/*,.pdf" onchange="handleReceiptUpload(event)" />
 <span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">cloud_upload</span>
 <span class="font-label-md text-label-md text-on-surface font-semibold">Tarik foto struk ke sini atau klik galeri</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Mendukung format JPG, PNG, atau scan PDF (Maks. 10MB)</span>
@@ -432,7 +433,7 @@
                 </span>
 </label>
 <div class="relative">
-<input class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10" type="text" value="Kantin Mahasiswa Gajayana"/>
+<input id="scanMerchant" class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10" type="text" value="Kantin Mahasiswa Gajayana"/>
 <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-xl">store</span>
 </div>
 </div>
@@ -445,7 +446,7 @@
                 </span>
 </label>
 <div class="relative">
-<input class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10" type="text" value="25 September 2026, 12:38 WIB"/>
+<input id="scanDate" class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10" type="text" value="25 September 2026, 12:38 WIB"/>
 <span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-xl">calendar_month</span>
 </div>
 </div>
@@ -458,7 +459,7 @@
 <span class="text-[11px] text-secondary font-bold">Rekomendasi AI</span>
 </label>
 <div class="relative">
-<select class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10 pr-10 appearance-none cursor-pointer">
+<select id="scanCategory" class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10 pr-10 appearance-none cursor-pointer">
 <option selected="" value="konsumsi">Makanan &amp; Minuman Harian</option>
 <option value="kuliah">Modul, Fotocopy &amp; Alat Tulis Kuliah</option>
 <option value="kos">Kebutuhan Kamar Kos / Ma'had</option>
@@ -474,7 +475,7 @@
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface font-semibold">Metode Pembayaran</label>
 <div class="relative">
-<select class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10 pr-10 appearance-none cursor-pointer">
+<select id="scanMethod" class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary pl-10 pr-10 appearance-none cursor-pointer">
 <option selected="" value="qris">QRIS Maliki (Mandiri Mobile)</option>
 <option value="bsi">BSI Syariah Student Account</option>
 <option value="cash">Uang Tunai / Dompet Saku</option>
@@ -497,14 +498,14 @@
 </div>
 <div class="flex items-center gap-space-sm bg-surface-container-lowest rounded-xl px-space-md py-1 shadow-xs">
 <span class="font-headline-lg text-headline-lg text-primary font-extrabold">Rp</span>
-<input class="w-full h-12 bg-transparent font-headline-lg text-headline-lg text-on-surface font-bold focus:outline-none tracking-tight" type="text" value="32.500"/>
+<input id="scanAmount" class="w-full h-12 bg-transparent font-headline-lg text-headline-lg text-on-surface font-bold focus:outline-none tracking-tight tabular-nums" type="text" value="32.500"/>
 </div>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Sudah terpotong diskon mahasiswa Rp 2.000</span>
 </div>
 
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface font-semibold">Catatan Keperluan</label>
-<input class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tulis rincian atau catatan pengingat..." type="text" value="Makan siang santai bareng kawan TI setelah praktikum Algoritma Pemrograman di Lab 2"/>
+<input id="scanNote" class="w-full h-12 bg-surface-container-lowest rounded-xl px-space-md font-body-md text-body-md text-on-surface shadow-xs focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tulis rincian atau catatan pengingat..." type="text" value="Makan siang santai bareng kawan TI setelah praktikum Algoritma Pemrograman di Lab 2"/>
 </div>
 
 <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
@@ -634,10 +635,12 @@
 <script>
   function confirmAndSaveReceipt(e) {
     const btn = e.currentTarget;
+    const merchant = document.getElementById('scanMerchant') ? document.getElementById('scanMerchant').value : 'Warteg Ampera Gajayana';
+    const amount = document.getElementById('scanAmount') ? document.getElementById('scanAmount').value : '22.000';
     btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Menyimpan ke Kas...</span>';
     btn.disabled = true;
     setTimeout(() => {
-      alert('Nota Warteg Ampera Gajayana (Rp22.000) berhasil disimpan ke Buku Kas!');
+      alert('Nota "' + merchant + '" (Rp' + amount + ') berhasil diverifikasi & disimpan ke Buku Kas Kampus!');
       window.location.href = '../daftarTransaksi/index.html';
     }, 500);
   }
@@ -697,6 +700,72 @@
       });
     }
   });
+</script>
+
+
+<script>
+  const sampleData = {
+    warteg: {
+      filename: 'IMG_20260925_Kantin_Gajayana.jpg',
+      merchant: 'Kantin Mahasiswa Gajayana',
+      date: '25 September 2026, 12:38 WIB',
+      category: 'konsumsi',
+      method: 'qris',
+      amount: '32.500',
+      note: 'Makan siang santai bareng kawan TI setelah praktikum Algoritma Pemrograman di Lab 2'
+    },
+    fotocopy: {
+      filename: 'IMG_20260925_Fotocopy_AlFalah.jpg',
+      merchant: 'Fotocopy & Percetakan Al-Falah Kampus 1',
+      date: '25 September 2026, 14:15 WIB',
+      category: 'kuliah',
+      method: 'cash',
+      amount: '18.000',
+      note: 'Jilid makalah metodologi riset & modul praktikum alpro'
+    },
+    spbu: {
+      filename: 'IMG_20260925_SPBU_Dinoyo.jpg',
+      merchant: 'SPBU 54.651.02 Dinoyo Malang',
+      date: '25 September 2026, 08:20 WIB',
+      category: 'transportasi',
+      method: 'cash',
+      amount: '40.000',
+      note: 'Isi bensin Pertalite motor Honda Vario PP kampus 1 & 2'
+    },
+    indomaret: {
+      filename: 'IMG_20260925_Indomaret_Kalijaga.jpg',
+      merchant: 'Indomaret Sunan Kalijaga Malang',
+      date: '25 September 2026, 19:45 WIB',
+      category: 'kos',
+      method: 'bsi',
+      amount: '28.500',
+      note: 'Kebutuhan sabun mandi, deterjen sachet, pasta gigi, & galon kos'
+    }
+  };
+
+  function loadSampleReceipt(key) {
+    const data = sampleData[key];
+    if (!data) return;
+    document.getElementById('scanFilename').textContent = data.filename;
+    document.getElementById('scanMerchant').value = data.merchant;
+    document.getElementById('scanDate').value = data.date;
+    document.getElementById('scanCategory').value = data.category;
+    document.getElementById('scanMethod').value = data.method;
+    document.getElementById('scanAmount').value = data.amount;
+    document.getElementById('scanNote').value = data.note;
+  }
+
+  function handleReceiptUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      document.getElementById('scanFilename').textContent = file.name;
+      const cleanName = file.name.replace(/\.[^/.]+$/, "").replace(/[_-]/g, " ");
+      if (document.getElementById('scanMerchant')) {
+        document.getElementById('scanMerchant').value = cleanName;
+      }
+      alert('Foto struk "' + file.name + '" berhasil diproses AI OCR MalikiWallet! Rincian telah diekstrak ke formulir.');
+    }
+  }
 </script>
 
 </body></html>
