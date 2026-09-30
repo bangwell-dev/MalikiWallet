@@ -8,14 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
 <style>
 @layer base {
-  html, body { margin: 0; padding: 0; overflow-x: hidden; }
-  body { overscroll-behavior: none; }
+  html, body { margin: 0; padding: 0; }
   main > :first-child { margin-top: 0 !important; }
   main > :last-child { margin-bottom: 0 !important; }
 }
-::-webkit-scrollbar { display: none; }
+/* Scrollbar halus elegan */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #e8ffee; }
+::-webkit-scrollbar-thumb { background: #84c39b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #0f5132; }
 .tabular-nums, [data-amount], .font-mono { font-variant-numeric: tabular-nums; }
-</style><script src="https://cdn.tailwindcss.com"></script>
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/store.js"></script>
 <script>
   function promptChangePin() {
     const cur = prompt('Masukkan 6-digit PIN saat ini (Default: 123456):');
@@ -45,7 +50,9 @@
   }
 
   function downloadKtmPdf() {
-    showToast('Menyiapkan berkas KTM Digital Muhammad Wildan...');
+    const user = window.MalikiStore ? MalikiStore.getUser() : {};
+    const name = user && user.name ? user.name : 'Mahasiswa';
+    showToast(`Menyiapkan berkas KTM Digital ${name}...`);
     setTimeout(() => {
       window.print();
     }, 400);
@@ -106,12 +113,12 @@
   </div>
 
   <a href="../profil/index.html" class="bg-surface-container hover:bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-sm transition-colors group cursor-pointer block" title="Kelola Profil & SIAKAD">
-    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+    <div id="sidebar-user-avatar" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-on-primary font-bold text-xs">
       <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
     </div>
     <div class="flex flex-col min-w-0 flex-1">
-      <span class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Muhammad Wildan</span>
-      <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Teknik Informatika</span>
+      <span id="sidebar-user-name" class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Mahasiswa UIN</span>
+      <span id="sidebar-user-major" class="font-label-sm text-label-sm text-on-surface-variant truncate">Fakultas Sains & Teknologi</span>
     </div>
     <span class="material-symbols-outlined text-lg text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
   </a>
@@ -168,15 +175,15 @@
     </div>
 
     <a href="../profil/index.html" class="hidden sm:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container transition-colors py-1.5 px-space-md rounded-full group cursor-pointer" title="Buka Profil Mahasiswa">
-      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+      <div id="header-user-avatar" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-on-primary font-bold text-xs">
         <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
       </div>
       <div class="flex flex-col text-left">
-        <span class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Muhammad Wildan</span>
-        <span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM 210605110000</span>
+        <span id="header-user-name" class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Mahasiswa UIN</span>
+        <span id="header-user-nim" class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM -</span>
       </div>
     </a>
-    <a href="../profil/index.html" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer" title="Buka Profil Mahasiswa">
+    <a href="../profil/index.html" id="header-user-avatar-mobile" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer text-on-primary font-bold text-xs" title="Buka Profil Mahasiswa">
       <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
     </a>
   </div>
@@ -215,7 +222,7 @@
 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md">
 
 <div class="relative group shrink-0">
-<div class="w-24 h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden bg-primary-container shadow-lg ring-4 ring-on-primary/10"><div class="w-full h-full flex flex-col items-center justify-center bg-surface-container text-primary font-bold"><span class="text-2xl lg:text-3xl font-headline-lg tracking-tight">MW</span><span class="text-[10px] font-label-sm text-on-surface-variant font-semibold uppercase mt-0.5">Wildan</span></div></div>
+<div class="w-24 h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden bg-primary-container shadow-lg ring-4 ring-on-primary/10"><div class="w-full h-full flex flex-col items-center justify-center bg-surface-container text-primary font-bold"><span id="prof-hero-initials" class="text-2xl lg:text-3xl font-headline-lg tracking-tight">MW</span><span class="text-[10px] font-label-sm text-on-surface-variant font-semibold uppercase mt-0.5" id="hero-avatar-sub">Profil</span></div></div>
 <button aria-label="Ubah Foto Profil" class="absolute -bottom-2 -right-2 w-9 h-9 rounded-xl bg-secondary-container text-on-secondary-container shadow-md flex items-center justify-center hover:scale-105 transition-transform" title="Ubah Foto Profil" type="button">
 <span class="material-symbols-outlined text-[18px]">photo_camera</span>
 </button>
@@ -231,20 +238,20 @@
               Mahasiswa Aktif • Reguler Ulul Albab
             </span>
 </div>
-<h2 class="font-headline-lg text-headline-lg font-bold tracking-tight text-surface-container-lowest">Muhammad Wildan</h2>
+<h2 class="font-headline-lg text-headline-lg font-bold tracking-tight text-surface-container-lowest" id="prof-hero-name">(Nama Belum Diisi)</h2>
 <div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-on-primary-container font-body-sm text-body-sm mt-1">
 <span class="flex items-center gap-1 text-on-primary">
 <span class="material-symbols-outlined text-[16px] text-secondary-fixed">badge</span>
-              NIM: 210605110000
+              <span id="prof-hero-nim">NIM: -</span>
             </span>
 <span>•</span>
-<span class="text-on-primary">S1 Teknik Informatika</span>
+<span class="text-on-primary" id="prof-hero-major">Prodi: -</span>
 <span>•</span>
-<span class="text-on-primary">Semester 4 (2026/2027)</span>
+<span class="text-on-primary" id="prof-hero-semester">Semester: -</span>
 </div>
 <div class="flex items-center gap-1.5 text-on-primary-container font-body-sm text-body-sm mt-0.5">
 <span class="material-symbols-outlined text-[16px]">school</span>
-<span>Fakultas Sains dan Teknologi • UIN Maulana Malik Ibrahim Malang</span>
+<span id="prof-hero-faculty">Fakultas Sains dan Teknologi • UIN Maulana Malik Ibrahim Malang</span>
 </div>
 </div>
 </div>
@@ -252,21 +259,21 @@
 <div class="grid grid-cols-3 gap-space-sm bg-black/20 backdrop-blur-md rounded-2xl p-space-md min-w-[280px] lg:max-w-md">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-surface-variant/80">Saldo Maliki</span>
-<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest mt-0.5">Rp2.450.000</span>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest mt-0.5" id="prof-hero-balance">Rp0</span>
 <span class="font-label-sm text-[10px] text-tertiary-fixed mt-0.5 flex items-center gap-0.5">
 <span class="material-symbols-outlined text-[12px]">trending_up</span> Dompet Utama
           </span>
 </div>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-surface-variant/80">Target UKT</span>
-<span class="font-headline-sm text-headline-sm font-bold text-secondary-container mt-0.5">89%</span>
-<span class="font-label-sm text-[10px] text-surface-container-lowest mt-0.5">Rp2.850.000 / 3.2M</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary-container mt-0.5" id="prof-hero-ukt-pct">0%</span>
+<span class="font-label-sm text-[10px] text-surface-container-lowest mt-0.5" id="prof-hero-ukt-ratio">Rp0 / Rp0</span>
 </div>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-surface-variant/80">Beasiswa</span>
-<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest mt-0.5">Tahfidz</span>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest mt-0.5" id="prof-hero-beasiswa">-</span>
 <span class="font-label-sm text-[10px] text-primary-fixed mt-0.5 flex items-center gap-0.5">
-<span class="material-symbols-outlined text-[12px]">check</span> Aktif Semester 4
+<span class="material-symbols-outlined text-[12px]">check</span> <span id="prof-hero-beasiswa-sub">Status Beasiswa</span>
           </span>
 </div>
 </div>
@@ -318,30 +325,41 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 
 <div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface" for="full-name">Nama Lengkap</label>
+<label class="font-label-md text-label-md text-on-surface" for="full-name">Nama Lengkap*</label>
 <div class="relative">
-<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="full-name" type="text" value="Muhammad Wildan"/>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="full-name" placeholder="Contoh: Muhammad Wildan" type="text" value=""/>
 <span class="material-symbols-outlined absolute right-3 top-3 text-primary text-[20px]">badge</span>
 </div>
 </div>
 
 <div class="flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<label class="font-label-md text-label-md text-on-surface" for="nim-field">Nomor Induk Mahasiswa (NIM)</label>
-<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-0.5">
-<span class="material-symbols-outlined text-[13px]">lock</span> Terkunci SIAKAD
-              </span>
-</div>
+<label class="font-label-md text-label-md text-on-surface" for="nim-field">Nomor Induk Mahasiswa (NIM)*</label>
 <div class="relative">
-<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-high/60 text-on-surface-variant font-body-md text-body-md cursor-not-allowed" id="nim-field" readonly="" type="text" value="210605110000"/>
-<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]">lock</span>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="nim-field" placeholder="Contoh: 210605110000" type="text" value=""/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]">pin</span>
+</div>
+</div>
+
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="major-field">Program Studi (Jurusan)*</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="major-field" placeholder="Contoh: S1 Teknik Informatika" type="text" value=""/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-primary text-[20px]">school</span>
+</div>
+</div>
+
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="semester-field">Semester Aktif*</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="semester-field" placeholder="Contoh: 4" min="1" max="14" type="number" value=""/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-primary text-[20px]">calendar_month</span>
 </div>
 </div>
 
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface" for="email-kampus">Email Institusi Kampus</label>
 <div class="relative">
-<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-high/60 text-on-surface-variant font-body-md text-body-md cursor-not-allowed" id="email-kampus" readonly="" type="email" value="wildan@student.uin-malang.ac.id"/>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="email-kampus" placeholder="nama@student.uin-malang.ac.id" type="email" value=""/>
 <span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]">mail</span>
 </div>
 </div>
@@ -349,7 +367,7 @@
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface" for="phone-no">Nomor WhatsApp / Seluler</label>
 <div class="relative">
-<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="phone-no" type="tel" value="+62 812-3456-7890"/>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm focus:bg-surface-container-low" id="phone-no" placeholder="+62 812-xxxx-xxxx" type="tel" value=""/>
 <span class="material-symbols-outlined absolute right-3 top-3 text-primary text-[20px]">call</span>
 </div>
 </div>
@@ -358,7 +376,7 @@
 <label class="font-label-md text-label-md text-on-surface" for="residence-type">Status Domisili / Tempat Tinggal di Malang</label>
 <div class="relative">
 <select class="w-full h-12 px-3.5 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm appearance-none focus:bg-surface-container-low" id="residence-type">
-<option selected="" value="kos">Kos Mandiri (Sekitar Kampus 1 UIN Malang)</option>
+<option value="kos">Kos Mandiri (Sekitar Kampus 1 UIN Malang)</option>
 <option value="mahad">Ma'had Al-Jami'ah (Asrama Kampus)</option>
 <option value="ortu">Rumah Orang Tua / Domisili Tetap Malang Raya</option>
 <option value="pesantren">Pondok Pesantren Mahasiswa Mitra</option>
@@ -369,7 +387,7 @@
 
 <div class="flex flex-col gap-1.5 sm:col-span-2">
 <label class="font-label-md text-label-md text-on-surface" for="address-malang">Alamat Kos / Tempat Tinggal Sekarang</label>
-<textarea class="w-full p-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm resize-none focus:bg-surface-container-low" id="address-malang" rows="2">Jl. Sunan Kalijaga No. 18, RT 03 / RW 04, Dinoyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65144</textarea>
+<textarea class="w-full p-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none transition-all shadow-sm resize-none focus:bg-surface-container-low" id="address-malang" placeholder="Alamat kos atau rumah tinggal di Malang..." rows="2"></textarea>
 </div>
 </div>
 </div>
@@ -419,9 +437,9 @@
 <div class="w-16 h-20 bg-surface-container-lowest/10 rounded-lg overflow-hidden shrink-0 ring-2 ring-on-primary/20"><div class="w-full h-full flex flex-col items-center justify-center bg-surface-container-low text-primary p-1 text-center"><span class="material-symbols-outlined text-[24px]">person</span><span class="font-label-sm text-[9px] uppercase font-bold text-primary">Pasfoto</span><span class="font-mono text-[8px] text-on-surface-variant leading-none">3x4</span></div></div>
 <div class="flex flex-col">
 <span class="font-label-sm text-[11px] text-surface-variant tracking-wider uppercase">UIN Maulana Malik Ibrahim Malang</span>
-<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest">Muhammad Wildan</span>
-<span class="font-body-sm text-body-sm text-on-primary-container">NIM. 210605110000</span>
-<span class="font-label-sm text-label-sm text-secondary-fixed mt-1">Teknik Informatika • Semester 4</span>
+<span class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest" id="ktm-name">(Nama Mahasiswa)</span>
+<span class="font-body-sm text-body-sm text-on-primary-container" id="ktm-nim">NIM: -</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed mt-1" id="ktm-major">Program Studi • Semester</span>
 </div>
 </div>
 <div class="bg-surface-container-lowest p-2.5 rounded-xl flex flex-col items-center shrink-0 shadow-inner">
@@ -577,7 +595,7 @@
 <span class="font-label-lg text-label-lg text-on-surface">Tabungan Mahasiswa Prima</span>
 <span class="material-symbols-outlined text-primary text-[16px]">verified</span>
 </div>
-<span class="font-mono font-body-sm text-body-sm text-on-surface-variant">7192 •••• 45 (a.n Muhammad Wildan)</span>
+<span id="prof-bank-owner" class="font-mono font-body-sm text-body-sm text-on-surface-variant">7192 •••• 45 (a.n Mahasiswa UIN)</span>
 </div>
 </div>
 <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">Tersambung</span>
@@ -632,7 +650,7 @@
 <span class="font-label-md text-label-md" id="toastMessage">Perubahan profil berhasil disimpan ke SIAKAD UIN Malang.</span>
 </div>
 <script>
-    // Sub-navigation active state switching
+    // Tab active state switching
     const tabButtons = document.querySelectorAll('.tab-btn');
     tabButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -646,11 +664,10 @@
     });
 
     // Toast Notification Helper
-    const toast = document.getElementById('toastNotification');
-    const toastMessage = document.getElementById('toastMessage');
-
     function showToast(message) {
-      if (!toast) return;
+      const toast = document.getElementById('toastNotification');
+      const toastMessage = document.getElementById('toastMessage');
+      if (!toast || !toastMessage) return;
       toastMessage.textContent = message;
       toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
       toast.classList.add('translate-y-0', 'opacity-100');
@@ -661,53 +678,150 @@
       }, 3500);
     }
 
-    // Save Button Simulation
+    // Render User Profile from MalikiStore
+    function renderUserProfile() {
+      if (!window.MalikiStore) return;
+      const user = MalikiStore.getUser() || {};
+      const financials = MalikiStore.getFinancials() || {};
+      const hasName = Boolean(user.name && user.name.trim());
+      const hasNim = Boolean(user.nim && user.nim.trim());
+      const hasMajor = Boolean(user.major && user.major.trim());
+
+      // Sidebar & Header user info
+      if (typeof MalikiStore.syncNavIdentity === 'function') {
+        MalikiStore.syncNavIdentity();
+      }
+
+      // Hero Profile Card Initials
+      const heroInitials = document.getElementById('prof-hero-initials');
+      if (heroInitials) {
+        const initials = hasName
+          ? user.name.trim().split(/\s+/).filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase()
+          : '?';
+        heroInitials.textContent = initials;
+      }
+
+      // Bank Account Owner Name
+      const bankOwner = document.getElementById('prof-bank-owner');
+      if (bankOwner) {
+        bankOwner.textContent = `7192 •••• 45 (a.n ${hasName ? user.name : 'Mahasiswa UIN'})`;
+      }
+
+      // Hero Profile Card
+      const heroName = document.getElementById('prof-hero-name');
+      const heroNim = document.getElementById('prof-hero-nim');
+      const heroMajor = document.getElementById('prof-hero-major');
+      const heroSemester = document.getElementById('prof-hero-semester');
+      const heroFaculty = document.getElementById('prof-hero-faculty');
+      const heroBalance = document.getElementById('prof-hero-balance');
+      const heroUktPct = document.getElementById('prof-hero-ukt-pct');
+      const heroUktRatio = document.getElementById('prof-hero-ukt-ratio');
+      const heroBeasiswa = document.getElementById('prof-hero-beasiswa');
+
+      if (heroName) heroName.textContent = hasName ? user.name : '(Nama Belum Diisi)';
+      if (heroNim) heroNim.textContent = hasNim ? `NIM: ${user.nim}` : 'NIM: -';
+      if (heroMajor) heroMajor.textContent = hasMajor ? user.major : 'Prodi: -';
+      if (heroSemester) heroSemester.textContent = user.semester ? `Semester ${user.semester}` : 'Semester: -';
+      if (heroFaculty) heroFaculty.textContent = user.faculty ? `${user.faculty} • UIN Malang` : 'UIN Maulana Malik Ibrahim Malang';
+
+      if (heroBalance) heroBalance.textContent = MalikiStore.formatRupiah(financials.balance || 0);
+
+      const uktTarget = user.ukt_target || 0;
+      const uktSaved = user.ukt_saved || 0;
+      const uktPct = uktTarget > 0 ? Math.min(100, Math.round((uktSaved / uktTarget) * 100)) : 0;
+
+      if (heroUktPct) heroUktPct.textContent = `${uktPct}%`;
+      if (heroUktRatio) heroUktRatio.textContent = uktTarget > 0 ? `${MalikiStore.formatRupiah(uktSaved)} / ${MalikiStore.formatRupiah(uktTarget)}` : 'Rp0 / Rp0';
+      if (heroBeasiswa) heroBeasiswa.textContent = user.beasiswa || '-';
+
+      // KTM Card Sync
+      const ktmName = document.getElementById('ktm-name');
+      const ktmNim = document.getElementById('ktm-nim');
+      const ktmMajor = document.getElementById('ktm-major');
+      if (ktmName) ktmName.textContent = hasName ? user.name : '(Nama Mahasiswa)';
+      if (ktmNim) ktmNim.textContent = hasNim ? `NIM: ${user.nim}` : 'NIM: -';
+      if (ktmMajor) ktmMajor.textContent = (hasMajor ? user.major : 'Program Studi') + (user.semester ? ` • Semester ${user.semester}` : '');
+
+      // Populate Form Inputs (only if not currently active/focused by user)
+      const inputName = document.getElementById('full-name');
+      const inputNim = document.getElementById('nim-field');
+      const inputMajor = document.getElementById('major-field');
+      const inputSem = document.getElementById('semester-field');
+      const inputEmail = document.getElementById('email-kampus');
+      const inputPhone = document.getElementById('phone-no');
+      const selectRes = document.getElementById('residence-type');
+      const inputAddress = document.getElementById('address-malang');
+
+      if (inputName && document.activeElement !== inputName) inputName.value = user.name || '';
+      if (inputNim && document.activeElement !== inputNim) inputNim.value = user.nim || '';
+      if (inputMajor && document.activeElement !== inputMajor) inputMajor.value = user.major || '';
+      if (inputSem && document.activeElement !== inputSem) inputSem.value = user.semester || '';
+      if (inputEmail && document.activeElement !== inputEmail) inputEmail.value = user.email || '';
+      if (inputPhone && document.activeElement !== inputPhone) inputPhone.value = user.phone || '';
+      if (selectRes && document.activeElement !== selectRes) selectRes.value = user.residence || 'kos';
+      if (inputAddress && document.activeElement !== inputAddress) inputAddress.value = user.address || '';
+    }
+
+    // Save Button Handler - Persist directly to MalikiStore
     const saveBtn = document.getElementById('saveBtn');
     if (saveBtn) {
       saveBtn.addEventListener('click', () => {
         saveBtn.classList.add('opacity-75');
-        saveBtn.querySelector('span:last-child').textContent = 'Menyimpan...';
+        const spanText = saveBtn.querySelector('span:last-child');
+        if (spanText) spanText.textContent = 'Menyimpan...';
+
+        const updatedData = {
+          name: document.getElementById('full-name') ? document.getElementById('full-name').value.trim() : '',
+          nim: document.getElementById('nim-field') ? document.getElementById('nim-field').value.trim() : '',
+          major: document.getElementById('major-field') ? document.getElementById('major-field').value.trim() : '',
+          semester: document.getElementById('semester-field') ? document.getElementById('semester-field').value.trim() : '',
+          email: document.getElementById('email-kampus') ? document.getElementById('email-kampus').value.trim() : '',
+          phone: document.getElementById('phone-no') ? document.getElementById('phone-no').value.trim() : '',
+          residence: document.getElementById('residence-type') ? document.getElementById('residence-type').value : 'kos',
+          address: document.getElementById('address-malang') ? document.getElementById('address-malang').value.trim() : ''
+        };
+
+        if (window.MalikiStore) {
+          window.MalikiStore.updateUser(updatedData);
+        }
+
         setTimeout(() => {
           saveBtn.classList.remove('opacity-75');
-          saveBtn.querySelector('span:last-child').textContent = 'Simpan Perubahan';
-          showToast('Data identitas dan preferensi syariah berhasil diperbarui!');
-        }, 800);
+          if (spanText) spanText.textContent = 'Simpan Perubahan';
+          showToast('Data identitas profil berhasil disimpan dan disinkronkan ke seluruh halaman!');
+        }, 350);
       });
     }
 
-    // Re-sync SIAKAD Simulation
-    const syncSiakadBtn = document.getElementById('syncSiakadBtn');
-    if (syncSiakadBtn) {
-      syncSiakadBtn.addEventListener('click', () => {
-        const icon = syncSiakadBtn.querySelector('.material-symbols-outlined');
-        if (icon) icon.classList.add('animate-spin');
-        syncSiakadBtn.setAttribute('disabled', 'true');
-
-        setTimeout(() => {
-          if (icon) icon.classList.remove('animate-spin');
-          syncSiakadBtn.removeAttribute('disabled');
-          showToast('Sinkronisasi ulang data SIAKAD UIN Malang sukses diperbarui!');
-        }, 1200);
-      });
-    }
-
-    // Logout Confirmation
+    // Logout Confirmation - Reset All Data to Empty
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
-        if (confirm('Apakah Anda yakin ingin keluar dari sesi MalikiWallet di perangkat ini?')) {
-          showToast('Sesi akun diakhiri. Mengalihkan ke login portal...');
+        if (confirm('Apakah Anda yakin ingin mengosongkan kembali seluruh profil dan data transaksi?')) {
+          if (window.MalikiStore) {
+            window.MalikiStore.resetToEmpty();
+          }
+          showToast('Data akun berhasil dikosongkan.');
         }
       });
     }
+
+    // Subscribe to MalikiStore for real-time reactivity
+    if (window.MalikiStore) {
+      window.MalikiStore.subscribe(renderUserProfile);
+    } else {
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.MalikiStore) window.MalikiStore.subscribe(renderUserProfile);
+      });
+    }
   </script>
-</div></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-40 px-space-sm">
-  <nav class="h-full flex items-center justify-around" data-active-classes="text-primary font-headline-sm">
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="dashboard" href="../dashboard/index.html">
+</div></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-50 px-space-sm pointer-events-auto">
+  <nav class="h-full flex items-center justify-around" data-mobile-bar="true">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="dashboard" onclick="malikiNavigate(event, '../dashboard/index.html')">
       <span class="material-symbols-outlined text-xl">space_dashboard</span>
       <span class="font-label-sm text-label-sm">Home</span>
     </a>
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="transaksi" href="../daftarTransaksi/index.html">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="transaksi" onclick="malikiNavigate(event, '../daftarTransaksi/index.html')">
       <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
       <span class="font-label-sm text-label-sm">Transaksi</span>
     </a>
@@ -716,13 +830,13 @@
         <span class="material-symbols-outlined text-2xl">add</span>
       </button>
     </div>
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="budget" href="../budget/index.html">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="budget" onclick="malikiNavigate(event, '../budget/index.html')">
       <span class="material-symbols-outlined text-xl">savings</span>
       <span class="font-label-sm text-label-sm">Budget</span>
     </a>
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-primary font-headline-sm" data-path="profil" href="../profil/index.html">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-primary font-headline-sm cursor-pointer select-none active:scale-90 transition-transform" data-path="profil" onclick="malikiNavigate(event, '../profil/index.html')">
       <span class="material-symbols-outlined text-xl">person</span>
-      <span class="font-label-sm text-label-sm">Profil</span>
+      <span class="font-label-sm text-label-sm font-bold">Profil</span>
     </a>
   </nav>
 </div>

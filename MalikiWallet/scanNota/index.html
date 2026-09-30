@@ -8,14 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
 <style>
 @layer base {
-  html, body { margin: 0; padding: 0; overflow-x: hidden; }
-  body { overscroll-behavior: none; }
+  html, body { margin: 0; padding: 0; }
   main > :first-child { margin-top: 0 !important; }
   main > :last-child { margin-bottom: 0 !important; }
 }
-::-webkit-scrollbar { display: none; }
+/* Scrollbar halus */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #e8ffee; }
+::-webkit-scrollbar-thumb { background: #84c39b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #0f5132; }
 .tabular-nums, [data-amount], .font-mono { font-variant-numeric: tabular-nums; }
-</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/store.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"background":"#e8ffee","inverse-primary":"#95d4ac","on-error":"#ffffff","on-primary-fixed":"#002111","surface-tint":"#2d6a48","on-tertiary-fixed-variant":"#005230","on-primary-container":"#84c39b","surface-container-lowest":"#ffffff","outline-variant":"#c0c9c0","error-container":"#ffdad6","secondary-fixed-dim":"#eec14b","on-secondary-fixed":"#251a00","inverse-on-surface":"#def7e5","on-tertiary-fixed":"#002110","primary":"#003820","surface":"#e8ffee","tertiary-container":"#005230","on-surface-variant":"#404942","outline":"#707971","error":"#ba1a1a","on-tertiary":"#ffffff","surface-variant":"#d0e9d7","on-secondary-fixed-variant":"#5a4300","on-secondary-container":"#735700","secondary-container":"#fece57","surface-dim":"#c7e0cf","on-background":"#0a2015","secondary-fixed":"#ffdf98","on-primary":"#ffffff","primary-fixed":"#b0f1c7","on-secondary":"#ffffff","surface-container":"#dbf4e2","primary-fixed-dim":"#95d4ac","surface-container-high":"#d5eedd","surface-bright":"#e8ffee","surface-container-low":"#e1fae8","secondary":"#775a00","inverse-surface":"#203529","tertiary-fixed-dim":"#8ad7a7","on-primary-fixed-variant":"#0f5132","on-surface":"#0a2015","on-error-container":"#93000a","surface-container-highest":"#d0e9d7","on-tertiary-container":"#79c597","tertiary":"#003920","tertiary-fixed":"#a6f3c2","primary-container":"#0f5132"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-md":"1rem","space-sm":"0.5rem","margin":"2rem","gutter-mobile":"1rem","gutter":"1.5rem","margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["1.125rem",{"lineHeight":"1.625rem","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","fontWeight":"400"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.03em","fontWeight":"800"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.025em","fontWeight":"800"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["1.0625rem",{"lineHeight":"1.75rem","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 hidden lg:flex flex-col justify-between p-space-lg transition-all duration-300">
   <div class="flex flex-col gap-space-lg">
     
     <div class="flex items-center justify-between">
@@ -65,12 +70,12 @@
   </div>
 
   <a href="../profil/index.html" class="bg-surface-container hover:bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-sm transition-colors group cursor-pointer block" title="Kelola Profil & SIAKAD">
-    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+    <div id="sidebar-user-avatar" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-on-primary font-bold text-xs">
       <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
     </div>
     <div class="flex flex-col min-w-0 flex-1">
-      <span class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Muhammad Wildan</span>
-      <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Teknik Informatika</span>
+      <span id="sidebar-user-name" class="font-label-lg text-label-lg text-on-surface truncate group-hover:text-primary transition-colors">Mahasiswa UIN</span>
+      <span id="sidebar-user-major" class="font-label-sm text-label-sm text-on-surface-variant truncate">Fakultas Sains & Teknologi</span>
     </div>
     <span class="material-symbols-outlined text-lg text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
   </a>
@@ -127,15 +132,15 @@
     </div>
 
     <a href="../profil/index.html" class="hidden sm:flex items-center gap-space-sm bg-surface-container-low hover:bg-surface-container transition-colors py-1.5 px-space-md rounded-full group cursor-pointer" title="Buka Profil Mahasiswa">
-      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+      <div id="header-user-avatar" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-on-primary font-bold text-xs">
         <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
       </div>
       <div class="flex flex-col text-left">
-        <span class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Muhammad Wildan</span>
-        <span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM 210605110000</span>
+        <span id="header-user-name" class="font-label-md text-label-md text-on-surface leading-none group-hover:text-primary transition-colors">Mahasiswa UIN</span>
+        <span id="header-user-nim" class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-0.5">NIM -</span>
       </div>
     </a>
-    <a href="../profil/index.html" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer" title="Buka Profil Mahasiswa">
+    <a href="../profil/index.html" id="header-user-avatar-mobile" class="sm:hidden w-8 h-8 rounded-full bg-primary flex items-center justify-center hover:scale-105 transition-transform cursor-pointer text-on-primary font-bold text-xs" title="Buka Profil Mahasiswa">
       <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
     </a>
   </div>
@@ -607,13 +612,13 @@
 <span class="material-symbols-outlined text-lg">close</span>
 </button>
 </div>
-</div></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-40 px-space-sm">
-  <nav class="h-full flex items-center justify-around" data-active-classes="text-primary font-headline-sm">
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="dashboard" href="../dashboard/index.html">
+</div></main></div><div class="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-2px_12px_rgba(0,0,0,0.06)] z-50 px-space-sm pointer-events-auto">
+  <nav class="h-full flex items-center justify-around" data-mobile-bar="true">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="dashboard" onclick="malikiNavigate(event, '../dashboard/index.html')">
       <span class="material-symbols-outlined text-xl">space_dashboard</span>
       <span class="font-label-sm text-label-sm">Home</span>
     </a>
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="transaksi" href="../daftarTransaksi/index.html">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="transaksi" onclick="malikiNavigate(event, '../daftarTransaksi/index.html')">
       <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
       <span class="font-label-sm text-label-sm">Transaksi</span>
     </a>
@@ -622,30 +627,16 @@
         <span class="material-symbols-outlined text-2xl">add</span>
       </button>
     </div>
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="budget" href="../budget/index.html">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="budget" onclick="malikiNavigate(event, '../budget/index.html')">
       <span class="material-symbols-outlined text-xl">savings</span>
       <span class="font-label-sm text-label-sm">Budget</span>
     </a>
-    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface" data-path="profil" href="../profil/index.html">
+    <a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface cursor-pointer select-none active:scale-90 transition-transform" data-path="profil" onclick="malikiNavigate(event, '../profil/index.html')">
       <span class="material-symbols-outlined text-xl">person</span>
       <span class="font-label-sm text-label-sm">Profil</span>
     </a>
   </nav>
 </div>
-<script>
-  function confirmAndSaveReceipt(e) {
-    const btn = e.currentTarget;
-    const merchant = document.getElementById('scanMerchant') ? document.getElementById('scanMerchant').value : 'Warteg Ampera Gajayana';
-    const amount = document.getElementById('scanAmount') ? document.getElementById('scanAmount').value : '22.000';
-    btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Menyimpan ke Kas...</span>';
-    btn.disabled = true;
-    setTimeout(() => {
-      alert('Nota "' + merchant + '" (Rp' + amount + ') berhasil diverifikasi & disimpan ke Buku Kas Kampus!');
-      window.location.href = '../daftarTransaksi/index.html';
-    }, 500);
-  }
-</script>
-
 <script id="maliki-nav-common">
   function toggleMobileSidebar() {
     const sidebar = document.getElementById('app-sidebar');
@@ -765,6 +756,21 @@
       }
       alert('Foto struk "' + file.name + '" berhasil diproses AI OCR MalikiWallet! Rincian telah diekstrak ke formulir.');
     }
+  }
+
+  // Subscribe ke pembaruan data pengguna & sinkronisasi navigasi
+  if (window.MalikiStore) {
+    MalikiStore.subscribe(() => {
+      if (typeof MalikiStore.syncNavIdentity === 'function') {
+        MalikiStore.syncNavIdentity();
+      }
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.MalikiStore && typeof MalikiStore.syncNavIdentity === 'function') {
+        MalikiStore.syncNavIdentity();
+      }
+    });
   }
 </script>
 
